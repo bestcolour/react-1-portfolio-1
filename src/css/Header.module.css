@@ -1,0 +1,39 @@
+.headerClass
+{
+    box-sizing: border-box;
+
+    /* Debug */
+    /* background-color: red; */
+
+} 
+
+.headerClass *
+{
+    /* Styles */
+    text-decoration:none;
+    list-style: none;
+    margin-left:  auto;
+    margin-right:  auto;
+}
+
+
+
+.headerClass .navWrapper
+{
+    background-color: blue;
+    text-align: center;
+}
+
+.headerClass .navWrapper li
+{
+    display: inline;
+}
+
+
+.headerClass .navWrapper a
+{
+    padding:  0.5%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: whitesmoke;
+    font-size: 125%;
+}
