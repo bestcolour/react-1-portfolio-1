@@ -17,10 +17,10 @@ export default function Header()
             <TitledBg data=
                 {
                     {
-                        image: "/Images/Backgrounds/SunsetBackground2.png",
+                        image: "/Images/Backgrounds/SunsetBackground.png",
                         imageAlternative: "Sunset Bg",
                         title: "Lee Kee Shen",
-                        description: "The world as it is"
+                        description: "I am a Frontend Developer and Data Scientist.I like dabbling in various parts of frontend development and like to learn about new technologies, write technical articles or simply play games in my free time."
                     }
                 }
             />

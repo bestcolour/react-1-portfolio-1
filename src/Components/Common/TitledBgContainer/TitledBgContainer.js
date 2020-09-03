@@ -14,19 +14,20 @@ export default function TitledBgContainer(props)
 
     return (
 
-        <div className={style}>
+        <div className={style.titledBgContainer}>
 
             <img
                 src={image}
                 alt={imageAlternative}
             />
 
-            <div className={style.flexContainer}
-            >
-
-                <h1>{title}</h1>
-                <p>{description}</p>
-
+            <div className={style.textContainer}>
+                <h1 >
+                    {title}
+                </h1>
+                <p >
+                    {description}
+                </p>
             </div>
 
 
