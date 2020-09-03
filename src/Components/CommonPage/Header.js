@@ -1,13 +1,31 @@
-import React from 'react';
-import style from "../../css/Header.module.css";
-import pageStyle from "../../css/CommonPage.module.css";
+import React from "react";
+
+//CSS Imports
+import headerStyle from "./Header.module.css";
+import pageStyle from "./CommonPage.module.css";
+//Component imports
+import TitledBg from "../Common/TitledBgContainer/TitledBgContainer.js";
+
 
 export default function Header()
 {
     return (
-        <div className={style.headerClass}>
 
-            <nav className={style.navContainer}>
+
+        <div className={headerStyle.headerClass}>
+
+            <TitledBg data=
+                {
+                    {
+                        image: "/Images/Backgrounds/SunsetBackground2.png",
+                        imageAlternative: "Sunset Bg",
+                        title: "Lee Kee Shen",
+                        description: "The world as it is"
+                    }
+                }
+            />
+
+            <nav className={headerStyle.navContainer}>
 
                 <a
 
@@ -18,25 +36,13 @@ export default function Header()
 
             </nav>
 
-            <div
-                className={style.imageContainer}
 
-            >
-
-                <img
-                    src="/Images/Backgrounds/SunsetBackground2.png"
-                />
-
-
-
-            </div >
 
 
 
 
 
         </div>
-
 
     );
 }

@@ -1,0 +1,39 @@
+
+  img
+{
+    position: relative;
+    width: 100%;
+}
+
+
+.flexContainer
+{
+    display:flex;
+    justify-content: center;
+    flex-direction:  column;
+
+    text-align: center;
+position: absolute;
+left :25%;
+top :0%;
+transform: translate(50%,50%);
+}
+
+
+/* 
+.flexContainer h1
+{
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1em;
+    color: white;
+
+}
+
+.flexContainer p
+{
+
+
+} */

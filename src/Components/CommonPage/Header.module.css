@@ -19,10 +19,14 @@
 /* NavBar */
 .headerClass .navContainer
 {
-    background-color: blue;
+    /* background-color: blue; */
     display: flex;
     flex-direction: row;
     justify-content: center;
+
+    position: fixed;
+    top: 2.5%;
+    width: 100%;
 }
 
 
@@ -34,19 +38,11 @@
     font-size: 125%;
 }
 
-
-/* Image  */
-.headerClass .imageContainer
+.headerClass .titledBgContainer img
 {
-    display:flex;
-    justify-content: center;
-
-}
-
-.headerClass .imageContainer img
-{
-    width: 60%;
-
+    background-color:  red;
+    position: absolute;
+    left: 50%;
 }
 
 
