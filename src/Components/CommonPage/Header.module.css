@@ -1,48 +1,14 @@
 .headerClass
 {
     box-sizing: border-box;
-
-    /* Debug */
-    /* background-color: red; */
-
 } 
 
 .headerClass *
 {
-    /* Styles */
     text-decoration:none;
     list-style: none;
 }
 
 
-
-/* NavBar */
-.headerClass .navContainer
-{
-    /* background-color: blue; */
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-
-    position: fixed;
-    top: 2.5%;
-    width: 100%;
-}
-
-
-.headerClass .navContainer a
-{
-    padding:  0.5%;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    color: whitesmoke;
-    font-size: 125%;
-}
-
-.headerClass .titledBgContainer img
-{
-    background-color:  red;
-    position: absolute;
-    left: 50%;
-}
 
 

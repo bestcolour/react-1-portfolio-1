@@ -1,0 +1,23 @@
+
+/* NavBar */
+ .navContainer
+{
+    /* background-color: blue; */
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    
+    position: fixed;
+    left: 50%;        
+    top: 2.5%;
+    transform: translate(-50%, -2.5%); 
+}
+
+
+ .navContainer a
+{
+    padding-left: 7%;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    color: whitesmoke;
+    font-size: 1.5vw;
+}
