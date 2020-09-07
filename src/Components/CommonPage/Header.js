@@ -4,20 +4,23 @@ import React from "react";
 import headerStyle from "./Header.module.css";
 import pageStyle from "./CommonPage.module.css";
 //Component imports
-import TitledBg from "../Common/TitledBgContainer/TitledBgContainer.js";
-import NavBar from "./NavBar.js";
+import TitledBg from "../Common/TitledBgContainer/TitledBackground.js";
+import Button from "../Common/ImageButton/ImageButton.js"
+
+function getSunsetBg()
+{
+    const hours = new Date().getHours();
+    return hours >= 7 && hours < 19 ? "/Images/Backgrounds/DayBackground.png" : "/Images/Backgrounds/NightBackground.png";
+}
 
 export default function Header()
 {
     return (
-
-
         <div className={headerStyle.headerClass}>
-
             <TitledBg data=
                 {
                     {
-                        image: "/Images/Backgrounds/SunsetBackground.png",
+                        image: getSunsetBg(),
                         imageAlternative: "Sunset Bg",
                         title: "Lee Kee Shen",
                         description:
@@ -25,30 +28,43 @@ export default function Header()
                     }
                 }
             />
-
-            <NavBar data=
-                {
+            <div
+                style={
                     {
-                        linksArray:
-                            [
-                                "https://Google.com",
-                                "https://Google.com",
-                                "https://Google.com",
-                            ],
-                        namesArray:
-                            [
-                                "Google",
-                                "Google",
-                                "Google",
-                            ],
-                        appearRange:
-                            [
-                                { min: 0, max: 1 }
-                            ]
+                        display : "flex",
+                     flexDirection: "row",
+                     justifyContent:"center",
                     }
                 }
-            />
-
+            >
+                <Button
+                    data=
+                    {
+                        {
+                            imgSrc: "/Images/favicon.ico",
+                            imgLink: "https://Google.com",
+                        }
+                    }
+                />
+                <Button
+                    data=
+                    {
+                        {
+                            imgSrc: "/Images/favicon.ico",
+                            imgLink: "https://Google.com",
+                        }
+                    }
+                />
+                <Button
+                    data=
+                    {
+                        {
+                            imgSrc: "/Images/favicon.ico",
+                            imgLink: "https://Google.com",
+                        }
+                    }
+                />
+            </div>
 
             <h1>
                 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed libero ante, faucibus a rhoncus id, mollis vel dui. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus ante tellus, accumsan vel tristique quis, finibus quis ipsum. Aliquam blandit fringilla ex in blandit. Mauris dictum erat a diam feugiat, id laoreet quam eleifend. Integer consectetur urna metus, et rutrum risus efficitur nec. Curabitur a laoreet nisi. Suspendisse eros nunc, semper vel lacinia quis, vulputate eget risus. Morbi non dui metus. Praesent ut fermentum nibh, eu aliquet lectus. Donec pellentesque vel massa vel congue. Sed mollis lectus ipsum, sit amet consequat risus fringilla et. Nunc lacus turpis, eleifend quis purus sed, aliquam cursus enim.

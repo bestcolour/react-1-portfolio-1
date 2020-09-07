@@ -1,7 +1,7 @@
 import React from "react";
 import style from "./TitledBgContainer.module.css";
 
-export default function TitledBgContainer(props)
+export default function TitledBackground(props)
 {
     const
         {

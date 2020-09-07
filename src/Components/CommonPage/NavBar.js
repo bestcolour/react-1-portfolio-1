@@ -28,20 +28,19 @@ export default class NavBar extends Component
 
         const { appearRange } = this.props.data;
 
-
-        let prevShown = this.state.isShown;
+        let isShown = false;
         for (const range of appearRange)
         {
-            if (this.determineIfWithin(scrollPercentage, range.min, range.max) != prevShown)
+            if (this.determineIfWithin(scrollPercentage, range.min, range.max))
             {
-                this.setState
-                    (
-                        {
-                            isShown : !prevShown
-                        }
-                    )
+                isShown = true;
                 break;
             }
+        }
+
+        if (isShown != this.state.isShown)
+        {
+            this.setState({ isShown: isShown });
         }
     }
 
@@ -68,7 +67,6 @@ export default class NavBar extends Component
         {
             return <div />
         }
-
 
         const
             {
