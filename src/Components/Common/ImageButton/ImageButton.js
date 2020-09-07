@@ -1,23 +1,28 @@
 import React from "react";
 import style from "./ImageButton.module.css";
 
-export default function Button(props)
+export default function ImageButton(props)
 {
     const
         {
             imgSrc,
+            openInNewTab,
             imgLink,
             onClickCallback
+            
         }
-            = props.data;
+        = props.data;
+
 
     return (
 
-        <div className ="buttonWrapper">
+
+        <div className="buttonWrapper">
 
             <a
-            href = {imgLink}
-            onClick = {onClickCallback}
+                href={imgLink}
+                target = {openInNewTab? "_blank" : "_self"}
+                onClick={onClickCallback}
             >
                 <img
                     src={imgSrc}

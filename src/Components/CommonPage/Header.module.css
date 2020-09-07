@@ -1,6 +1,7 @@
 .headerClass
 {
     box-sizing: border-box;
+    position:  relative;
 } 
 
 .headerClass *
@@ -10,4 +11,32 @@
 }
 
 
+#socialMediaButtonsContainer
+{
+    width: 20%;
+    position: absolute;  
+    left: 50%;                       
+    top: 60%;                      
+    transform: translate(-50%, -50%); 
+}
 
+#socialMediaButtonsWrapper 
+{
+    display : flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+} 
+
+#socialMediaButtonsWrapper img
+{
+    width: 65%;
+} 
+
+
+#socialMediaButtonsWrapper img:hover
+{
+    background-color: red;
+    overflow: hidden;
+    z-index: 2;
+    background:transparent;
+} 

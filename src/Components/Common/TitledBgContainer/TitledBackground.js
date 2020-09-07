@@ -25,6 +25,7 @@ export default function TitledBackground(props)
                 <h1 >
                     {title}
                 </h1>
+                <br />
                 <p >
                     {description}
                 </p>
