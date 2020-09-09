@@ -7,10 +7,7 @@ const data =
             [
                 "https://www.google.com/",
                 "https://www.google.com/",
-                "https://www.google.com/",
-                "https://www.google.com/",
-                "https://www.google.com/",
-                "https://www.google.com/"
+                "http://localhost:3000/aboutme"
             ]
         ,
         namesArray:
@@ -20,10 +17,13 @@ const data =
                 "Google"
             ]
         ,
-        appearRange:
+        linkTypeArray:
         [
-            { min: 0, max: 1 }
+            true,
+            false,
+            false
         ]
+
     }
 
 

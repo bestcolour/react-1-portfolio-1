@@ -2,7 +2,7 @@ import React from "react";
 
 //Components
 import { Switch, Route } from "react-router-dom";
-import NavBar from "./Components/PageModules/NavBar";
+import NewHeader from "./Components/PageModules/NewHeader";
 import LandingPage from "./Components/PageModules/LandingPage";
 
 //Data
@@ -10,21 +10,20 @@ import data from "./Data";
 
 function App()
 {
+  console.log(window.location.hostname);
+
   return (
 
     <div>
-      <NavBar
-        linksArray= {data.navData.linksArray}
-        namesArray={data.navData.namesArray}
-        appearRange={data.navData.appearRange}
+
+
+      <NewHeader
+        key = "ridOfConsoleError"
+        data={data.navData}
       />
 
       <Switch>
-
-        <Route exact path="/">  <LandingPage /></Route>
-
-
-
+        <Route exact path="/"><LandingPage /></Route>
       </Switch>
 
     </div>

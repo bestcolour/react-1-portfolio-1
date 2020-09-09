@@ -2,6 +2,7 @@ import React from "react";
 
 //CSS Imports
 import style from "./LandingPage.module.css";
+import commonStyle from "../pageMod.module.css";
 
 function getSunsetBg()
 {
@@ -13,12 +14,22 @@ function getSunsetBg()
 
 export default function LandingPage()
 {
+
+var imgStyle = 
+{
+  backgroundImage: `url(${getSunsetBg()})`,
+  backgroundColor: "#cccccc"
+}
+
   return (
 
     <div>
-      <header className={style.header}>
-        Header
-
+      <header 
+      className={`${commonStyle.col12}`}
+      style = {imgStyle}
+      id = {style.header}
+      >
+ 
   </header>
 
     </div>

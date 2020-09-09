@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import {Link} from "react-router-dom";
+import { Link } from "react-router-dom";
 
-import style from "./NavBar.module.css";
+import style from "./Header.module.css";
 
-export default class NavBar extends Component
+export default class Header extends Component
 {
     constructor()
     {
@@ -73,16 +73,22 @@ export default class NavBar extends Component
 
             finalJSX.push
                 (
-                    <Link to ={linksArray[i]}>{name}</Link>
+                    <li>
+                        <Link to={linksArray[i]}>{name}</Link>
+                    </li>
                     // <a href={linksArray[i]} key={`Nav Bar Element ${i}`}>{name} </a>
                 );
         }
 
 
         return (
-            <nav className={style.navWrapper}>
-                {finalJSX}
-            </nav>
+            <header className={style.headerWrapper}>
+                <nav className = {style.navWrapper}>
+                <ul >
+                    {finalJSX}
+                </ul>
+                </nav>
+            </header>
         );
     }
 
