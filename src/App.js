@@ -1,21 +1,32 @@
 import React from "react";
-import Header from "./Components/CommonPage/Header.js";
-import NavBar from "./Components/CommonPage/NavBar.js";
-import AboutMe from "./Components/CommonPage/AboutMe.js";
 
-function App() {
+//Components
+import { Switch, Route } from "react-router-dom";
+import NavBar from "./Components/PageModules/NavBar";
+import LandingPage from "./Components/PageModules/LandingPage";
+
+//Data
+import data from "./Data";
+
+function App()
+{
   return (
+
     <div>
       <NavBar
-        data={{
-          linksArray: ["#", "https://Google.com", "https://Google.com"],
-          namesArray: ["Home", "Google", "Google"],
-          appearRange: [{ min: 0, max: 1 }]
-        }}
+        linksArray= {data.navData.linksArray}
+        namesArray={data.navData.namesArray}
+        appearRange={data.navData.appearRange}
       />
 
-      <Header />
-      <AboutMe />
+      <Switch>
+
+        <Route exact path="/">  <LandingPage /></Route>
+
+
+
+      </Switch>
+
     </div>
   );
 }
