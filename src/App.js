@@ -2,7 +2,7 @@ import React from "react";
 
 //Components
 import { Switch, Route } from "react-router-dom";
-import NewHeader from "./Components/PageModules/NewHeader";
+import NavBar from "./Components/PageModules/NavBar";
 import Intro from "./Components/PageModules/Intro";
 
 //Data
@@ -13,7 +13,7 @@ function App() {
 
   return (
     <div>
-      <NewHeader key="ridOfConsoleError" data={data.navData} />
+      <NavBar key="ridOfConsoleError" data={data.navData} />
 
       <Switch>
         <Route exact path="/">

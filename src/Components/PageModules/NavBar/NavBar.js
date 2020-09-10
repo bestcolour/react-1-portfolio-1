@@ -1,9 +1,9 @@
 import React from "react";
 import commonStyle from "../pageMod.module.css";
-import style from "./NewHeader.module.css";
+import style from "./NavBar.module.css";
 import AltLink from "../../Common/AltLink";
 
-export default function NewHeader(props)
+export default function NavBar(props)
 {
     const linksArray = typeof props.data.linksArray === "undefined" ? [window.document.hostname] : props.data.linksArray;
     const namesArray = typeof props.data.namesArray === "undefined" ? ["Link"] : props.data.namesArray;
