@@ -1,0 +1,53 @@
+#bgContainer {
+  height: 100vh;
+  position: relative;
+}
+
+/* This is the div container which holds the texts within  */
+#imgBanner {
+  margin: 0% 10%;
+
+  position: absolute;
+  top: 60%;
+  transform: translatey(-60%);
+
+  text-align: center;
+}
+
+/* For desktop text size*/
+@media only screen and(min-width: 768px) {
+  @media only screen and (orientaion: landscape) {
+    /* For landscape */
+  }
+
+  /* For portrait */
+}
+
+/* For mobile text */
+
+/* For desktop text size*/
+@media only screen and(max-width: 768px) {
+  @media only screen and (orientaion: landscape) {
+    /* For landscape */
+    @media only screen and (orientaion: landscape) {
+      #imgBanner h1 {
+        font-size: 2em;
+        color: blue;
+      }
+
+      #imgBanner p {
+        font-size: 1.25em;
+      }
+    }
+
+    /* For portrait */
+    #imgBanner h1 {
+      font-size: 1.75em;
+      color: red;
+    }
+
+    #imgBanner p {
+      font-size: 1em;
+    }
+  }
+}
