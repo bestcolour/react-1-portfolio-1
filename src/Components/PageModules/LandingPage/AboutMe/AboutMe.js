@@ -15,8 +15,6 @@ export default function AboutMe(props)
             country
         } = props.data;
 
-
-
     var imgStyle =
     {
         height: "8.5em",

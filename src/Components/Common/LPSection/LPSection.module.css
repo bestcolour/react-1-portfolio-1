@@ -8,6 +8,7 @@
 
 .rowClass
 {
+    display: block;
     margin-left: 10%;
     margin-right: 10%;
 }
@@ -20,7 +21,11 @@
 
 #rightContent
 {
-    padding-left:15%;
-    padding-right: 15%;
+    padding-left:7%;
+    padding-right: 7%;
 }
 
+#bottomContent
+{
+    padding-top: 15%;
+}

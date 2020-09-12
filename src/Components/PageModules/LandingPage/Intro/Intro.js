@@ -10,6 +10,11 @@ function getSunsetBg()
   return hours >= 7 && hours < 19
     ? "/Images/Backgrounds/DayBackground.png"
     : "/Images/Backgrounds/NightBackground.png";
+
+//Debugging
+// return "/Images/Backgrounds/DayBackground.png";
+// return "/Images/Backgrounds/NightBackground.png";
+
 }
 
 export default function Intro(props)

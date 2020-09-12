@@ -1,0 +1,14 @@
+.percentageBarHolder
+{
+    display: flex;
+    justify-content: left;
+    height: 2em;
+    border-radius: .25em;
+
+}
+
+
+.percentageBar
+{
+    border-radius: .25em;
+}

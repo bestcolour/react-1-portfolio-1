@@ -4,22 +4,26 @@ import commonStyle from "../../PageModules/pageMod.module.css";
 
 export default function LPSection(props)
 {
-    const { leftContent, rightContent } = props;
+  const { leftContent, rightContent, bottomContent } = props;
 
-    return (
-        <div className={`${commonStyle.col12} ${style.sectionClass}`} >
+  return (
+    <div className={`${commonStyle.col12} ${style.sectionClass}`} >
 
-        <div className={style.rowClass}>
+      <div className={style.rowClass}>
 
-            <div className={commonStyle.col3} id={style.leftContent} >
-              {leftContent}
-            </div>
+        <div className={commonStyle.col3} id={style.leftContent} >
+          {leftContent}
+        </div>
 
-            <div className={commonStyle.col9} id ={style.rightContent}>
-              {rightContent}
-            </div>
+        <div className={commonStyle.col9} id={style.rightContent}>
+          {rightContent}
+        </div>
 
+      </div>
+      
+      <div className={style.rowClass} id = {style.bottomContent}>
+        {bottomContent} 
         </div>
     </div>
-    );
+  );
 }

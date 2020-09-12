@@ -1,0 +1,120 @@
+
+/* For all */
+.qualificationNameHolder
+{
+    display: flex;
+    align-items: center;
+}
+
+.qualificationNameHolder h1
+{
+    border-bottom: 2px blue solid;
+    font-size: 1.5em;
+}
+
+/* h1 represents the information title */
+.infoHolder h1
+{
+    font-size: 1.75em;
+    padding-bottom: 2.5%;
+}
+
+/* italic represents the subtitle (education cert or role played in company) */
+.infoHolder .italicsHolder
+{
+    font-size: 1em;
+    padding-bottom: 2.5%;
+}
+
+.infoHolder .italicsHolder i
+{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+
+/* ul represents the other Achievements'container*/
+.infoHolder ul
+{
+    padding: 5% 0;
+    font-size: 1em;
+    line-height: 2em;
+    list-style-type: none;
+    text-align: left;
+}
+
+
+.skillBar
+{
+    padding-top: 7%;
+    padding-bottom: 5%;
+    padding-right: 10%;
+}
+
+.skillBar h1
+{
+    font-size: 1.25em;
+    padding-top: 2.5%; padding-bottom: 2.5%;
+}
+
+.skillBar section
+{
+    background-color: red !important;
+}
+
+.skillBar nav
+{
+    background-color: green !important;
+}
+
+
+
+
+
+
+
+
+
+/* For mobile */
+.qualificationNameHolder
+{
+    text-align: center;
+    justify-content: center;
+}
+
+.qualificationNameHolder h1
+{
+    letter-spacing: 0.1em;
+}
+
+.infoHolder
+{
+    padding-top: 10%;
+    padding-bottom: 10%;
+    text-align: center;
+}
+
+
+
+
+/* For none mobile*/
+@media only screen and (min-width: 768px )
+{
+    .qualificationNameHolder
+    {
+        text-align: left;
+        justify-content: left;
+    }
+
+    .qualificationNameHolder h1
+    {
+        letter-spacing: initial;
+    }
+
+    .infoHolder
+    {
+        padding-top: 0%;
+        padding-bottom: 10%;
+        text-align: left;
+    }
+
+}
