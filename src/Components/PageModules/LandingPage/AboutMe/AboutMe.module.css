@@ -1,0 +1,98 @@
+#aboutMeHolder *
+{
+    background-color:#0e1111;
+}
+
+
+#highestH1 
+{
+    margin: 0% !important;
+}
+
+#textsHolder h1
+{
+    color: white;
+}
+
+#textsHolder p
+{
+    color: slategray;
+}
+
+
+/* For Mobile */
+#textsHolder h1
+{
+    margin-top: 10%;
+    font-size: 1.35em;
+}
+
+#textsHolder p
+{
+    margin-top: 2.5%;
+    margin-bottom: 2.5%;
+    font-size: 1em;
+}
+
+#imageHolder
+{
+    display: none;
+}
+
+#textsHolder
+{
+    padding: 0 20%;
+}
+
+/* For non-mobiles */
+@media only screen and (min-width:768px)
+{
+    #imageHolder
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #textsHolder
+    {
+        padding: 0 5%;
+    }
+}
+
+/* For Tablet */
+@media only screen and (min-width: 768px) 
+{
+    #textsHolder h1
+    {
+        font-size: 1.75em;
+        margin-bottom: 0;
+    }
+
+    #textsHolder p
+    {
+        font-size: 1.25em;
+        margin:  1% 0%;
+    }
+}
+
+
+
+/* For Desktop */
+@media only screen and (min-width: 1024px) 
+{
+    #textsHolder h1
+    {
+        font-size: 2em;
+        margin-bottom: 0;
+    }
+
+    #textsHolder p
+    {
+        font-size: 1.35em;
+        margin:  1% 0%;
+    }
+}
+
+
+

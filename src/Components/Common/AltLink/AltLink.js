@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 export default function AltLink(props)
 {
-    const { linkName, link, openInNewTab} = props;
+    const { linkName, link, openInNewTab, style} = props;
 
     const shouldUseA = link.includes(window.location.hostname);
 

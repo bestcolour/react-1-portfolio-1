@@ -1,0 +1,159 @@
+#introContainer *
+{
+  color: white;
+}
+
+/* This is the div container which holds the texts within  */
+#imgTexts 
+{
+  position: absolute;
+
+  top: 50%;
+  left:  50%;
+  transform: translate(-50%,-50%);
+
+  text-align: center;
+}   
+
+/* Button holder */
+#buttonHolder 
+{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* #buttonHolder a:hover
+{
+  background-color: black !important;
+  z-index: 10 !important;
+  cursor: pointer;
+  background-blend-mode: screen;
+} */
+
+
+
+/* For mobile text */
+/* (max-width: 768px)  and  */
+@media only screen and (orientation: landscape)
+{
+  #imgTexts h1 
+  {
+    font-size: 2.5em;
+  }
+
+  #imgTexts p 
+  {
+    font-size: 1em;
+  }
+
+  #buttonHolder a
+  {
+    width: 2.5em;
+    height: 2.5em;
+    margin: 0 2.5%; 
+  }
+}
+
+/* and (max-width : 768px) */
+@media only screen and (orientation : portrait)
+{
+  #imgTexts h1 
+  {
+    font-size: 2.5em;
+  }
+
+  #imgTexts p  
+  {
+    font-size: 1em;
+  }
+
+  #buttonHolder a
+  {
+    width: 3em;
+    height: 3em;
+    margin: 0 2.5%; 
+  }
+}
+
+
+/* For tablet text */
+@media only screen and (min-width: 768px ) and (orientation: landscape)
+{
+  #imgTexts h1 
+  {
+    font-size: 5em;
+  }
+
+  #imgTexts p 
+  {
+    font-size: 1.3em;
+  }
+
+  #buttonHolder a
+  {
+    width: 3.75em;
+    height: 3.75em;
+    margin: 0 2.5%; 
+  }
+}
+
+@media only screen and (min-width : 768px ) and (orientation : portrait)
+{
+  #imgTexts h1 {
+    font-size: 5em;
+  }
+
+  #imgTexts p {
+    font-size: 1.5em;
+  }
+
+  #buttonHolder a
+  {
+    width: 5em;
+    height: 5em;
+    margin: 0 2.5%; 
+  }
+}
+
+/* For desktop text size*/
+@media only screen and (min-width: 1024px ) and (orientation: landscape)
+{
+  #imgTexts h1 
+  {
+    font-size: 5em;
+  }
+
+  #imgTexts p 
+  {
+    font-size: 1.75em;
+  }
+
+  #buttonHolder a
+  {
+    width: 4em;
+    height: 4em;
+    margin: 0 2.5%; 
+  }
+}
+
+@media only screen and (min-width : 1024px ) and (orientation : portrait)
+{
+  #imgTexts h1 {
+    font-size: 5em;
+  }
+
+  #imgTexts p {
+    font-size: 1.75em;
+  }
+
+  #buttonHolder a
+  {
+    width: 3.5em;
+    height: 3.5em;
+    margin: 0 2.5%; 
+  }
+}
+
+
+
