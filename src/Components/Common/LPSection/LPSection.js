@@ -9,7 +9,7 @@ export default function LPSection(props)
   return (
     <div className={`${commonStyle.col12} ${style.sectionClass}`} >
 
-      <div className={style.rowClass}>
+      <div className={commonStyle.LProw}>
 
         <div className={commonStyle.col3} id={style.leftContent} >
           {leftContent}
@@ -21,7 +21,7 @@ export default function LPSection(props)
 
       </div>
       
-      <div className={style.rowClass} id = {style.bottomContent}>
+      <div className={commonStyle.LProw} id = {style.bottomContent}>
         {bottomContent} 
         </div>
     </div>

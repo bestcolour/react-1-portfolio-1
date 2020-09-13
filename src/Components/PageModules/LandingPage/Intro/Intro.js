@@ -11,32 +11,33 @@ function getSunsetBg()
     ? "/Images/Backgrounds/DayBackground.png"
     : "/Images/Backgrounds/NightBackground.png";
 
-//Debugging
-// return "/Images/Backgrounds/DayBackground.png";
-// return "/Images/Backgrounds/NightBackground.png";
+  //Debugging
+  // return "/Images/Backgrounds/DayBackground.png";
+  // return "/Images/Backgrounds/NightBackground.png";
 
 }
 
 export default function Intro(props)
 {
-  const { buttonLinkArray, buttonImgArray } = props.data;
 
+  const { buttonSettingsArray } = props.data;
 
   const finalButtonJSX = [];
-  for (let i = 0; i < buttonLinkArray.length; i++)
+
+  for (const setting of buttonSettingsArray)
   {
-    const buttonImg = i < buttonImgArray.length ? buttonImgArray[i] : "";
+
     const linkBgStyle =
     {
-      backgroundImage: `url(${buttonImg})`,
+      backgroundImage: `url(${setting.buttonImg})`,
       backgroundColor: "transparent",
-      backgroundRepeat:"no-repeat",
+      backgroundRepeat: "no-repeat",
       backgroundSize: "contain"
     };
-    
+
     finalButtonJSX.push
       (
-        <a href={buttonLinkArray[i]} style={linkBgStyle} target="_blank"/>
+        <a href={setting.buttonLink} style={linkBgStyle} target="_blank" />
       );
   }
 
@@ -53,9 +54,7 @@ export default function Intro(props)
 
   return (
     <div>
-
       <header className={`${commonStyle.col12}`} style={bgStyle} id={style.introContainer}>
-
         <div id={style.imgTexts}>
           <h1>I am</h1>
           <h1>Lee Kee Shen</h1>
@@ -63,28 +62,12 @@ export default function Intro(props)
             I am a game design student at singapore polytechnic. Lorem ipsum. I
             wanna be the very best that no one ever was. Lololololol!!!
           </p>
-
-
           <br />
-
           <div id={style.buttonHolder}>
             {finalButtonJSX}
           </div>
-
         </div>
-
-
-
-
-
-
       </header>
-
-
-
-
-
-
     </div>
   );
 }

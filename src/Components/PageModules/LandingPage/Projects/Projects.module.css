@@ -1,0 +1,113 @@
+/* For all */
+.mainContainer
+{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+
+    padding-top: 2.5%;
+    padding-bottom: 2.5%;
+}
+
+#backgroundColor
+{
+    margin-top: 5%;
+    background-color:#ebeeee;
+}
+
+#projectsHolder
+{
+    width: 100%;
+    margin: 5% 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#projectsHolder a:hover
+{
+    -webkit-filter: brightness(.20);
+    filter: brightness(.20);
+}
+
+.imgStyle
+{
+    height: 12vw;
+    width: 12vw;
+}
+
+#title
+{
+    color: #95A3A3;
+}
+
+#seeMoreHolder
+{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+#seeMoreHolder section
+{
+    margin: 0 5%;
+}
+
+
+
+
+
+
+
+
+
+
+
+/* For mobile */
+.imgStyle
+{
+    margin: 0 auto;
+}
+
+#title
+{
+    font-size: 0.75em;
+}
+
+#seeMoreHolder section
+{
+    font-size: .7em;
+}
+
+
+/* For none mobile */
+@media only screen and (min-width: 768px)
+{
+    .imgStyle
+    {
+        margin-left:2.5% ;
+        margin-right:auto ;
+    }
+
+    #title
+    {
+        font-size: 1.5em;
+    }
+
+    #seeMoreHolder section
+    {
+        font-size: 1em;
+    }
+}
+
+
+/* For none mobile */
+@media only screen and (min-width: 1024px)
+{
+    #title
+    {
+        font-size: 2em;
+    }
+}

@@ -1,5 +1,11 @@
-
 /* For all */
+#allQualifications hr
+{
+    border-top: 1px dotted #0e1111;
+}
+
+
+
 .qualificationNameHolder
 {
     display: flex;
@@ -8,7 +14,7 @@
 
 .qualificationNameHolder h1
 {
-    border-bottom: 2px blue solid;
+    border-bottom: 2px rgb(12, 150, 150) solid;
     font-size: 1.5em;
 }
 
@@ -45,8 +51,8 @@
 
 .skillBar
 {
-    padding-top: 7%;
-    padding-bottom: 5%;
+    padding-top: 2.5%;
+    padding-bottom: 2.5%;
     padding-right: 10%;
 }
 
@@ -58,12 +64,12 @@
 
 .skillBar section
 {
-    background-color: red !important;
+    background-color: #ccc !important;
 }
 
 .skillBar nav
 {
-    background-color: green !important;
+    background-color: #313131 !important;
 }
 
 
@@ -88,8 +94,8 @@
 
 .infoHolder
 {
-    padding-top: 10%;
-    padding-bottom: 10%;
+    padding-top: 5%;
+    padding-bottom: 5%;
     text-align: center;
 }
 
@@ -113,7 +119,17 @@
     .infoHolder
     {
         padding-top: 0%;
-        padding-bottom: 10%;
+        padding-bottom: 2.5%;
+        text-align: left;
+    }
+
+    /* ul represents the other Achievements'container*/
+    .infoHolder ul
+    {
+        padding: 2.5% 0;
+        font-size: 1em;
+        line-height: 2em;
+        list-style-type: none;
         text-align: left;
     }
 

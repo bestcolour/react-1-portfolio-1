@@ -23,13 +23,12 @@
   justify-content: center;
 }
 
-/* #buttonHolder a:hover
+#buttonHolder a:hover
 {
-  background-color: black !important;
-  z-index: 10 !important;
+  -webkit-filter: opacity(.5) drop-shadow(0 0 0 red);
+  filter: opacity(.5) drop-shadow(0 0 0 red);
   cursor: pointer;
-  background-blend-mode: screen;
-} */
+}
 
 
 

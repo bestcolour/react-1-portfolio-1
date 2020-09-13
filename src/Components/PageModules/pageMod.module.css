@@ -42,11 +42,17 @@ time, mark, audio, video
     float: left;
 }
 
+/* Landing page row */
+.LProw
+{
+    display: block;
+    margin-left: 17.5%;
+    margin-right: 17.5%;
+}
 
-
-.row::after 
+/* .row::after 
 {
     content: "";
     clear: both;
     display: table;
-}
+} */

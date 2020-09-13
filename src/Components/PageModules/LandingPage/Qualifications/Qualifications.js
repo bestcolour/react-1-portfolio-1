@@ -96,7 +96,7 @@ export default function Qualifications(props)
 
 
     return (
-        <div>
+        <div id = {style.allQualifications}>
             <LPSection leftContent={eduLeftContent} rightContent={eduRightContent} bottomContent={bottomContent} />
             <LPSection leftContent={workLeftContent} rightContent={workRightContent} bottomContent={bottomContent} />
             <LPSection leftContent={skillsLeftContent} rightContent={skillsRightContent} />
