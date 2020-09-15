@@ -24,6 +24,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 #projectsHolder a:hover
@@ -34,13 +35,16 @@
 
 .imgStyle
 {
-    height: 12vw;
-    width: 12vw;
+    height: 7em;
+    width: 7em;
+    /* height: 12vw; */
+    /* width: 12vw; */
 }
 
 #title
 {
     color: #95A3A3;
+    padding-top: 5%;
 }
 
 #seeMoreHolder
@@ -55,20 +59,23 @@
     margin: 0 5%;
 }
 
+/* For none mobile */
+@media only screen and (min-width : 768px)
+{
+    .imgStyle
+    {
+        height: 12vw;
+        width: 12vw;
+    }
 
-
-
-
-
-
-
+}
 
 
 
 /* For mobile */
 .imgStyle
 {
-    margin: 0 auto;
+    margin: 5% 0.5%;
 }
 
 #title
@@ -82,7 +89,7 @@
 }
 
 
-/* For none mobile */
+/* For tablet */
 @media only screen and (min-width: 768px)
 {
     .imgStyle
@@ -103,7 +110,7 @@
 }
 
 
-/* For none mobile */
+/* For desktop */
 @media only screen and (min-width: 1024px)
 {
     #title

@@ -3,6 +3,9 @@ import React from "react";
 //CSS Imports
 import style from "./Intro.module.css";
 import commonStyle from "../../pageMod.module.css";
+//Components
+import ImageButtons from "../../../Common/ImageButtons";
+
 
 function getSunsetBg()
 {
@@ -19,28 +22,6 @@ function getSunsetBg()
 
 export default function Intro(props)
 {
-
-  const { buttonSettingsArray } = props.data;
-
-  const finalButtonJSX = [];
-
-  for (const setting of buttonSettingsArray)
-  {
-
-    const linkBgStyle =
-    {
-      backgroundImage: `url(${setting.buttonImg})`,
-      backgroundColor: "transparent",
-      backgroundRepeat: "no-repeat",
-      backgroundSize: "contain"
-    };
-
-    finalButtonJSX.push
-      (
-        <a href={setting.buttonLink} style={linkBgStyle} target="_blank" />
-      );
-  }
-
   var bgStyle =
   {
     height: "100vh",
@@ -64,7 +45,7 @@ export default function Intro(props)
           </p>
           <br />
           <div id={style.buttonHolder}>
-            {finalButtonJSX}
+            <ImageButtons data={props.data.buttonSettingsArray} />
           </div>
         </div>
       </header>

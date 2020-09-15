@@ -17,8 +17,8 @@ export default function AboutMe(props)
 
     var imgStyle =
     {
-        height: "8.5em",
-        width: "8.5em",
+        height: "12.5vw",
+        width: "12.5vw",
         backgroundImage: `url(${imageURL})`,
         backgroundRepeat: "no-repeat",
         backgroundSize: "cover",

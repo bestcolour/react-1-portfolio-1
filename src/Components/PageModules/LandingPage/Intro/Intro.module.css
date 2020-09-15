@@ -15,8 +15,8 @@
   text-align: center;
 }   
 
-/* Button holder */
-#buttonHolder 
+/* Button holder. Targeting section cause SocialMediaButton uses a section tag to wrap the buttons*/
+#buttonHolder section
 {
   display: flex;
   align-items: center;
@@ -30,6 +30,30 @@
   cursor: pointer;
 }
 
+
+#buttonHolder a
+{
+  margin: 0 2.5%; 
+}
+
+
+
+/* Mobile */
+/* #imgTexts h1 
+{
+  font-size: 7vh;
+}
+
+#imgTexts p 
+{
+  font-size: 4vh;
+} */
+
+#buttonHolder a
+{
+  width: 7vh;
+  height: 7vh;
+}
 
 
 /* For mobile text */
@@ -46,12 +70,6 @@
     font-size: 1em;
   }
 
-  #buttonHolder a
-  {
-    width: 2.5em;
-    height: 2.5em;
-    margin: 0 2.5%; 
-  }
 }
 
 /* and (max-width : 768px) */
@@ -66,18 +84,11 @@
   {
     font-size: 1em;
   }
-
-  #buttonHolder a
-  {
-    width: 3em;
-    height: 3em;
-    margin: 0 2.5%; 
-  }
 }
 
 
 /* For tablet text */
-@media only screen and (min-width: 768px ) and (orientation: landscape)
+@media only screen and (min-width: 768px ) and (min-height: 500px) and (orientation: landscape)
 {
   #imgTexts h1 
   {
@@ -87,13 +98,6 @@
   #imgTexts p 
   {
     font-size: 1.3em;
-  }
-
-  #buttonHolder a
-  {
-    width: 3.75em;
-    height: 3.75em;
-    margin: 0 2.5%; 
   }
 }
 
@@ -105,13 +109,6 @@
 
   #imgTexts p {
     font-size: 1.5em;
-  }
-
-  #buttonHolder a
-  {
-    width: 5em;
-    height: 5em;
-    margin: 0 2.5%; 
   }
 }
 
@@ -127,14 +124,8 @@
   {
     font-size: 1.75em;
   }
-
-  #buttonHolder a
-  {
-    width: 4em;
-    height: 4em;
-    margin: 0 2.5%; 
-  }
 }
+
 
 @media only screen and (min-width : 1024px ) and (orientation : portrait)
 {
@@ -144,13 +135,6 @@
 
   #imgTexts p {
     font-size: 1.75em;
-  }
-
-  #buttonHolder a
-  {
-    width: 3.5em;
-    height: 3.5em;
-    margin: 0 2.5%; 
   }
 }
 

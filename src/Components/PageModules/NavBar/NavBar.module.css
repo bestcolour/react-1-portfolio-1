@@ -3,13 +3,14 @@
 {
     text-decoration :none;
     list-style-type: none;
-    color: aliceblue;
+    color: red;
 }
 
 
 /* For mobile */
  #navBar
  {
+    z-index: 10;
      display: none;
  }
 

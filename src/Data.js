@@ -23,7 +23,8 @@ const data =
     ,
     landingPageData:
     {
-        introData:
+        //THis will hold data for both intro component & footer component
+        socialMediaData:
         {
             //Object properties: buttonLink (string),buttonImg (string)
             buttonSettingsArray:
@@ -33,6 +34,22 @@ const data =
                         buttonImg: "Images/GitHubLogo.png"
                     }
                     ,
+                ]
+            ,
+            contactDetailsArray:
+                [
+                    {
+                        platform: "Linked in",
+                        id: "Lee Kee Shen"
+                    },
+                    {
+                        platform: "Linked in",
+                        id: "Lee Kee Shen"
+                    },
+                    {
+                        platform: "Linked in",
+                        id: "Lee Kee Shen"
+                    },
                 ]
         }
         ,
@@ -137,7 +154,8 @@ const data =
                         projectImg: "Images/Backgrounds/NightBackground.png"
                     }
                 ],
-        }
+        },
+
     }
 
 };
