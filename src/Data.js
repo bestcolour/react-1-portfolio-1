@@ -14,7 +14,7 @@ const data =
                 {
                     link: "http://localhost:3000/aboutme",
                     linkName: "aboutMe",
-                    openInNewTab: true
+                    openInNewTab: false
                 },
 
             ]
