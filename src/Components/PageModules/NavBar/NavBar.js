@@ -3,7 +3,6 @@ import commonStyle from "../pageMod.module.css";
 import style from "./NavBar.module.css";
 import AltLink from "../../Common/AltLink";
 
-
 export default class NavBar extends Component
 {
     constructor()
@@ -12,6 +11,7 @@ export default class NavBar extends Component
         this.m_NavBarRef = React.createRef();
         this.handleScroll = this.handleScroll.bind(this);
         this.toggleNavBar = this.toggleNavBar.bind(this);
+        this.handleClick = this.handleClick.bind(this);
         this.state =
         {
             //For the sake of remembering the state
@@ -27,11 +27,71 @@ export default class NavBar extends Component
     }
 
 
+
+    componentDidMount()
+    {
+        window.addEventListener("scroll", this.handleScroll);
+    }
+
+    componentWillUnmount()
+    {
+        window.removeEventListener("scroll", this.handleScroll);
+    }
+
+    render()
+    {
+        const {  centerLinksArray } = this.props.data;
+        const finalJSX = [];
+
+
+        const currentLink = window.location.href;
+        for (const setting of centerLinksArray)
+        {
+            const setId = currentLink == setting.linkName ? style.selectedPage : null;
+
+            finalJSX.push
+                (
+                    <li onClick={() => this.handleClick(this)}
+                        id={setId}
+                    >
+
+                        <AltLink
+                            link={setting.link}
+                            linkName={setting.linkName}
+                            openInNewTab={setting.openInNewTab}
+                        />
+                    </li>
+                )
+                ;
+        }
+
+        //We will render the navBar only on desktop and we will render the navigation button on mobile only
+        return (
+            <nav>
+                <div className={`${commonStyle.col12} ${style.transition}`} id={style.navBar} ref={this.m_NavBarRef}>
+                    <ul className={style.linksContainer}>
+                        {finalJSX}
+                    </ul>
+                </div>
+
+
+
+                <div className={`${commonStyle.col12}`} id={style.navButton}>
+                    This is the navButton
+        </div>
+            </nav>
+
+        );
+    }
+
+
+    //<===========================METHODS=====================================>
+
     toggleNavBar()
     {
         this.m_NavBarRef.current.classList.toggle(style.hide);
     }
-    
+
 
     handleScroll()
     {
@@ -89,56 +149,14 @@ export default class NavBar extends Component
 
     }
 
-    componentDidMount()
+
+    handleClick(element)
     {
-        window.addEventListener("scroll", this.handleScroll);
+        const currentElementSelected = document.getElementById(style.selectedPage);
+        console.log(currentElementSelected);
+        // currentElementSelected.classList.remove(style.selectedPage);
+        // element.classList.add(style.selectedPage);
     }
 
-    componentWillUnmount()
-    {
-        window.removeEventListener("scroll", this.handleScroll);
-    }
 
-    render()
-    {
-        const { linkSettingsArray } = this.props.data;
-        const finalJSX = [];
-
-        for (const setting of linkSettingsArray)
-        {
-            finalJSX.push
-                (
-                    <li>
-                        <AltLink
-                            link={setting.link}
-                            linkName={setting.linkName}
-                            openInNewTab={setting.openInNewTab}
-                        />
-                    </li>
-                )
-                ;
-        }
-
-
-
-
-
-        //We will render the navBar only on desktop and we will render the navigation button on mobile only
-        return (
-            <nav>
-                <div className={`${commonStyle.col12} ${style.transition}`} id={style.navBar} ref={this.m_NavBarRef}>
-                    <ul className={style.linksContainer}>
-                        {finalJSX}
-                    </ul>
-                </div>
-
-
-
-                <div className={`${commonStyle.col12}`} id={style.navButton}>
-                    This is the navButton
-        </div>
-            </nav>
-
-        );
-    }
 }

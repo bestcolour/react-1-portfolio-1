@@ -3,22 +3,41 @@ const data =
     //Nav Data
     navData:
     {
-        //Object properties: link (string),linkName (string), openInNewTab(bool)
-        linkSettingsArray:
-            [
-                {
-                    link: "https://www.google.com/",
-                    linkName: "Google",
-                    openInNewTab: true
-                },
-                {
-                    link: "http://localhost:3000/aboutme",
-                    linkName: "aboutMe",
-                    openInNewTab: false
-                },
+        landPageNavBarData:
+        {
+            //Object properties: link (string),linkName (string), 
+            //linkType(string enum kind of...) "a", "a-newTab", "routerLink", "scrollLink"
+            // a: normal link which replaces the current url with a new url
+            // a-newTab: normal link but opens link in new tab
+            // routerLink: react-router's Link which appends a path to the domain name and hence allowing for switch rendering
+            // scrollLink: react-scroll's Link which allows for smooth scrolling in a page
+            centerLinksArray:
+                [
+                    {
+                        link: "https://www.google.com/",
+                        linkName: "Google",
+                        linkType: "a"
+                    },
+                    {
+                        link: "http://localhost:3000",
+                        linkName: "aboutMe",
+                        linkType: "a"
+                    },
+                    {
+                        link: "https://www.google.com/",
+                        linkName: "Google",
+                        linkType: "a"
+                    },
+                    {
+                        link: "http://localhost:3000",
+                        linkName: "aboutMe",
+                        linkType: "a"
+                    },
 
-            ]
 
+                ]
+
+        }
     }
     ,
     landingPageData:

@@ -8,14 +8,32 @@ import LandingPage from "./Components/PageModules/LandingPage";
 //Data
 import data from "./Data";
 
-function App() {
+
+function determineNavData()
+{
+  const pathName = window.location.pathname;
+  console.log(pathName);
+  switch (pathName)
+  {
+    //for now landing page will be portfolio
+      case "/":
+      return data.navData.landPageNavBarData;
+  }
+}
+
+function App()
+{
   return (
     <div>
-      <NavBar key="navBar" data={data.navData} />
 
+      <NavBar key="navBar" data={determineNavData()} />
       <Switch>
         <Route exact path="/">
-          <LandingPage key="landingPage" data={data.landingPageData} />
+          <div> <LandingPage key="landingPage" data={data.landingPageData} /></div>
+        </Route>
+
+         <Route exact path="/">
+          <div> <LandingPage key="landingPage" data={data.landingPageData} /></div>
         </Route>
       </Switch>
     </div>
