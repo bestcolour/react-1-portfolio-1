@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import commonStyle from "../pageMod.module.css";
+import commonStyle from "../../pageMod.module.css";
 import style from "./NavBar.module.css";
-import AltLink from "../../Common/AltLink";
+// import AltLink from "../../../Common/AltLink";
 
 export default class NavBar extends Component
 {
@@ -40,37 +40,38 @@ export default class NavBar extends Component
 
     render()
     {
-        const {  centerLinksArray } = this.props.data;
+        // const {  centerLinksArray } = this.props.data;
         const finalJSX = [];
 
 
         const currentLink = window.location.href;
-        for (const setting of centerLinksArray)
-        {
-            const setId = currentLink == setting.linkName ? style.selectedPage : null;
+        
+        // for (const setting of centerLinksArray)
+        // {
+        //     const setId = currentLink == setting.linkName ? style.selectedPage : null;
 
-            finalJSX.push
-                (
-                    <li onClick={() => this.handleClick(this)}
-                        id={setId}
-                    >
+        //     finalJSX.push
+        //         (
+        //             <li onClick={() => this.handleClick(this)}
+        //                 id={setId}
+        //             >
 
-                        <AltLink
-                            link={setting.link}
-                            linkName={setting.linkName}
-                            openInNewTab={setting.openInNewTab}
-                        />
-                    </li>
-                )
-                ;
-        }
+        //                 <AltLink
+        //                     link={setting.link}
+        //                     linkName={setting.linkName}
+        //                     openInNewTab={setting.openInNewTab}
+        //                 />
+        //             </li>
+        //         )
+        //         ;
+        // }
 
         //We will render the navBar only on desktop and we will render the navigation button on mobile only
         return (
             <nav>
                 <div className={`${commonStyle.col12} ${style.transition}`} id={style.navBar} ref={this.m_NavBarRef}>
                     <ul className={style.linksContainer}>
-                        {finalJSX}
+                        {/* {finalJSX} */}Hi
                     </ul>
                 </div>
 

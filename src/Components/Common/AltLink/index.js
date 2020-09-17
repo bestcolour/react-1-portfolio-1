@@ -1,2 +1,2 @@
-import AltLink from "./AltLink";
-export default AltLink;
+// import AltLink from "./AltLink";
+// export default AltLink;
