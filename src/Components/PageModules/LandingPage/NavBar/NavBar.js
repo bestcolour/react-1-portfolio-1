@@ -11,7 +11,7 @@ export default class NavBar extends Component
         this.m_NavBarRef = React.createRef();
         this.handleScroll = this.handleScroll.bind(this);
         this.toggleNavBar = this.toggleNavBar.bind(this);
-        this.handleClick = this.handleClick.bind(this);
+        // this.handleClick = this.handleClick.bind(this);
         this.state =
         {
             //For the sake of remembering the state
@@ -40,38 +40,17 @@ export default class NavBar extends Component
 
     render()
     {
-        // const {  centerLinksArray } = this.props.data;
-        const finalJSX = [];
-
-
-        const currentLink = window.location.href;
-        
-        // for (const setting of centerLinksArray)
-        // {
-        //     const setId = currentLink == setting.linkName ? style.selectedPage : null;
-
-        //     finalJSX.push
-        //         (
-        //             <li onClick={() => this.handleClick(this)}
-        //                 id={setId}
-        //             >
-
-        //                 <AltLink
-        //                     link={setting.link}
-        //                     linkName={setting.linkName}
-        //                     openInNewTab={setting.openInNewTab}
-        //                 />
-        //             </li>
-        //         )
-        //         ;
-        // }
-
         //We will render the navBar only on desktop and we will render the navigation button on mobile only
         return (
             <nav>
                 <div className={`${commonStyle.col12} ${style.transition}`} id={style.navBar} ref={this.m_NavBarRef}>
                     <ul className={style.linksContainer}>
-                        {/* {finalJSX} */}Hi
+                        <li><a href={"/"} >Intro</a></li>
+                        <li><a href={"/"} >About</a></li>
+                        <li><a href={"/"} >Education</a></li>
+                        <li><a href={"/"} >Work</a></li>
+                        <li><a href={"/"} >Skills</a></li>
+                        <li><a href={"/"} >Projects</a></li>
                     </ul>
                 </div>
 
@@ -80,6 +59,9 @@ export default class NavBar extends Component
                 <div className={`${commonStyle.col12}`} id={style.navButton}>
                     This is the navButton
         </div>
+
+
+
             </nav>
 
         );
@@ -151,13 +133,14 @@ export default class NavBar extends Component
     }
 
 
-    handleClick(element)
-    {
-        const currentElementSelected = document.getElementById(style.selectedPage);
-        console.log(currentElementSelected);
-        // currentElementSelected.classList.remove(style.selectedPage);
-        // element.classList.add(style.selectedPage);
-    }
+    // //This function will be used for selecting the nav
+    // handleClick(element)
+    // {
+    //     const currentElementSelected = document.getElementById(style.selectedPage);
+    //     console.log(currentElementSelected);
+    //     // currentElementSelected.classList.remove(style.selectedPage);
+    //     // element.classList.add(style.selectedPage);
+    // }
 
 
 }

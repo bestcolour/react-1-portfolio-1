@@ -34,7 +34,7 @@ export default function Intro(props)
   };
 
   return (
-    <div>
+    <div id = {props.id}>
       <header className={`${commonStyle.col12}`} style={bgStyle} id={style.introContainer}>
         <div id={style.imgTexts}>
           <h1>I am</h1>
