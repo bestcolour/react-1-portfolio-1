@@ -34,21 +34,19 @@ export default function Intro(props)
   };
 
   return (
-    <div id = {props.id}>
-      <header className={`${commonStyle.col12}`} style={bgStyle} id={style.introContainer}>
-        <div id={style.imgTexts}>
-          <h1>I am</h1>
-          <h1>Lee Kee Shen</h1>
-          <p>
-            I am a game design student at singapore polytechnic. Lorem ipsum. I
-            wanna be the very best that no one ever was. Lololololol!!!
+    <header className={`${commonStyle.col12}`} style={bgStyle} id={props.id}>
+      <div id={style.imgTexts}>
+        <h1>I am</h1>
+        <h1>Lee Kee Shen</h1>
+        <p>
+          I am a game design student at singapore polytechnic. Lorem ipsum. I
+          wanna be the very best that no one ever was. Lololololol!!!
           </p>
-          <br />
-          <div id={style.buttonHolder}>
-            <ImageButtons data={props.data.buttonSettingsArray} />
-          </div>
+        <br />
+        <div id={style.buttonHolder}>
+          <ImageButtons data={props.data.buttonSettingsArray} />
         </div>
-      </header>
-    </div>
+      </div>
+    </header>
   );
 }

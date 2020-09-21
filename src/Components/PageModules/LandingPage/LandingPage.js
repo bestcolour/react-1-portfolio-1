@@ -17,12 +17,12 @@ export default function LandingPage(props)
         <div>
             <NavBar data={style.about} />
 
-            <Intro data={props.data.socialMediaData} />
+            <Intro data={props.data.socialMediaData} id = "INTRO" />
 
-            <AboutMe data={props.data.aboutMeData} />
+            <AboutMe data={props.data.aboutMeData} id = "ABOUT" />
 
-            <Qualifications data={props.data.qualificationsData} />
-            <Projects data={props.data.projectsData} />
+            <Qualifications data={props.data.qualificationsData}  />
+            <Projects data={props.data.projectsData} id = "PROJECTS"/>
             <Footer data={props.data.socialMediaData} />
         </div>
     );

@@ -1,5 +1,4 @@
 import React from "react";
-
 //Components
 import { Switch, Route } from "react-router-dom";
 import LandingPage from "./Components/PageModules/LandingPage";
@@ -13,7 +12,7 @@ function App()
     <div>
       <Switch>
         <Route exact path="/">
-           <LandingPage key="landingPage" data={data.landingPageData} />
+          <LandingPage key="landingPage" data={data.landingPageData} />
         </Route>
 
       </Switch>

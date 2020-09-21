@@ -44,11 +44,9 @@ export default function AboutMe(props)
 
 
     return (
-        <div id={props.id}>
             <div id={style.aboutMeHolder}>
-                <LPSection leftContent={leftContent} rightContent={rightContent} />
+                <LPSection leftContent={leftContent} rightContent={rightContent} id = {props.id} />
             </div>
-        </div>
     );
 
 }

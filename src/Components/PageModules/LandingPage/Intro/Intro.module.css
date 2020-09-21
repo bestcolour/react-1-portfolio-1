@@ -1,8 +1,3 @@
-#introContainer *
-{
-  color: white;
-}
-
 /* This is the div container which holds the texts within  */
 #imgTexts 
 {
@@ -14,6 +9,11 @@
 
   text-align: center;
 }   
+
+#imgTexts * 
+{
+  color: white;
+}
 
 /* Button holder. Targeting section cause SocialMediaButton uses a section tag to wrap the buttons*/
 #buttonHolder section

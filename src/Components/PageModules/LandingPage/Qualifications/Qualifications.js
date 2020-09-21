@@ -29,9 +29,9 @@ function generateInfoContent(title, subTitle, date, other)
 function generateSkillBar(skillName, skillPercentage)
 {
 
-    return(
-        <div className = {style.skillBar}> 
-            <PercentageBar percentage={skillPercentage}  name={skillName}/>
+    return (
+        <div className={style.skillBar}>
+            <PercentageBar percentage={skillPercentage} name={skillName} />
         </div>
     );
 }
@@ -47,7 +47,7 @@ function generateLeftContent(title)
 
 export default function Qualifications(props)
 {
-    const { educationExpArray, workExpArray, skillsExpArray } = props.data;
+    const { educationExpArray, workExpArray, skillsExpArray, id } = props.data;
     const eduRightContent = [], workRightContent = [], skillsRightContent = [];
 
     const eduLeftContent = generateLeftContent("Education");
@@ -68,8 +68,6 @@ export default function Qualifications(props)
 
         eduRightContent.push(jsxToPush);
     }
-
-
 
     //Handles work experience
     for (const data of workExpArray)
@@ -96,10 +94,10 @@ export default function Qualifications(props)
 
 
     return (
-        <div id = {style.allQualifications}>
-            <LPSection leftContent={eduLeftContent} rightContent={eduRightContent} bottomContent={bottomContent} />
-            <LPSection leftContent={workLeftContent} rightContent={workRightContent} bottomContent={bottomContent} />
-            <LPSection leftContent={skillsLeftContent} rightContent={skillsRightContent} />
+        <div id={style.allQualifications}>
+                <LPSection leftContent={eduLeftContent} rightContent={eduRightContent} bottomContent={bottomContent} id = "EDUCATION" />
+                <LPSection leftContent={workLeftContent} rightContent={workRightContent} bottomContent={bottomContent} id = "WORK" />
+                <LPSection leftContent={skillsLeftContent} rightContent={skillsRightContent}id = "SKILLS" />
         </div>
     );
 }

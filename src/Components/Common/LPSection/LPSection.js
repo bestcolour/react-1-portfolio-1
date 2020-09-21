@@ -4,10 +4,10 @@ import commonStyle from "../../PageModules/pageMod.module.css";
 
 export default function LPSection(props)
 {
-  const { leftContent, rightContent, bottomContent } = props;
+  const { leftContent, rightContent, bottomContent,id } = props;
 
   return (
-    <div className={`${commonStyle.col12} ${style.sectionClass}`} >
+    <div className={`${commonStyle.col12} ${style.sectionClass}`} id = {id} >
 
       <div className={commonStyle.LProw}>
 
