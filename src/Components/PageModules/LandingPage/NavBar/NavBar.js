@@ -9,11 +9,11 @@ export default class NavBar extends Component
         super();
         this.m_NavBarRef = React.createRef();
         this.handleScroll = this.handleScroll.bind(this);
-        this.toggleNavBar = this.toggleNavBar.bind(this);
-        this.handleTransition = this.handleScrollUp.bind(this);
+        // this.toggleNavBar = this.toggleNavBar.bind(this);
+        // this.ShownPastTop_handleScrollUp = this.ShownPastTop_handleScrollUp.bind(this);
         this.handleWindowResize = this.handleWindowResize.bind(this);
-        this.updateSectionsSizes = this.updateSectionsSizes.bind(this);
-        this.calibrateSectionID = this.calibrateSectionID.bind(this);
+        // this.updateSectionsSizes = this.updateSectionsSizes.bind(this);
+        // this.getCurrentSectionID = this.getCurrentSectionID.bind(this);
         this.state =
         {
             //For the sake of remembering the state
@@ -26,7 +26,7 @@ export default class NavBar extends Component
             navBarState: "ShownAtTop",
             prevScrollY: 0,
             sectionHeightMarks: [],
-            currentSectionIndex: 0
+            currentSectionIndex: -1
         }
 
 
@@ -127,8 +127,9 @@ export default class NavBar extends Component
                     return;
                 }
 
-                this.handleScrollDown();
-                this.setState({ prevScrollY: currentScrollY });
+                //Else if scroll dir is downwards
+                this.HiddenPastTop_handleScrollDown();
+
                 break;
 
             case "ShownPastTop":
@@ -136,22 +137,20 @@ export default class NavBar extends Component
                 if (currentScrollY > this.state.prevScrollY)
                 {
                     this.toggleNavBar();
-                    this.handleScrollDown();
                     this.setState({ navBarState: "HiddenPastTop", prevScrollY: currentScrollY });
                     return;
                 }
 
+                //Else if scroll dir is upwards 
 
-                //If scroll dir is upwards and scroll is entering navbar's original position
+                //and scroll is entering navbar's original position
                 if (currentScrollY <= heightOfNavBar)
                 {
-                    this.handleScrollUp();
                     this.setState({ navBarState: "ShownAtTop", prevScrollY: currentScrollY });
                     return;
                 }
 
-                this.handleScrollUp();
-                this.setState({ prevScrollY: currentScrollY });
+                this.ShownPastTop_handleScrollUp();
                 break;
         }
 
@@ -159,84 +158,75 @@ export default class NavBar extends Component
     }
 
 
-    //This will only be called when you are scrolling upwards
-    handleScrollUp()
+
+    ShownPastTop_handleScrollUp()
     {
-        //If document has just been scrolled up
+
+        let currentIndex = this.state.currentSectionIndex;
+        const currentScrollY = window.scrollY;
+
+        if (currentIndex === -1)
+        {
+
+            this.setState({ currentSectionIndex: this.getCurrentSectionID(), prevScrollY: currentScrollY });
+            return;
+        }
+
+        //Set curr index to section's top index (in relation to sectionHeightMarks)
+        currentIndex = this.state.currentSectionIndex;
+        const topPoint = this.state.sectionHeightMarks[currentIndex];
+
+        //When u scroll up, currentScrollY becomes smaller
+        //So when your scroll y is smaller than the bot point of the section,
+        if (currentScrollY < topPoint)
+        {
+            currentIndex--;
+            this.setState
+                (
+                    { prevScrollY: currentScrollY, currentSectionIndex: currentIndex }
+                )
+            return;
+        }
+
+        this.setState({ prevScrollY: currentScrollY });
+    }
+
+    HiddenPastTop_handleScrollDown()
+    {
+        const currentScrollY = window.scrollY;
+
+        //If index is already set to -1 (to show that it needs to be refreshed)
         if (this.state.currentSectionIndex === -1)
         {
-            this.calibrateSectionID();
-            return;
+            this.setState({ prevScrollY: currentScrollY });
         }
 
-        const targetIndex = this.state.currentSectionIndex - 1;
-        const currentTarget = this.state.sectionHeightMarks[targetIndex];
-        const currentScrollY = window.scrollY;
-
-        if (currentScrollY >= currentTarget)
-        {
-            return;
-        }
-
-        this.setState
-            (
-                (prevState) =>
-                {
-                    console.log(prevState.currentSectionIndex -1);
-                    return { currentSectionIndex: (prevState.currentSectionIndex - 1) };
-                }
-            )
-
-        // const array = this.state.sectionHeightMarks;
-        // for (let index = array.length - 1; index >= 0; index--)
-        // {
-        //     const height = array[index];
-        //     if (currentScrollY >= height)
-        //     {
-        //         console.log(`Current Scroll: ${currentScrollY} Height: ${height} Index: ${index}`);
-        //         break;
-        //     }
-        // }
-
-
+        this.setState({ currentSectionIndex: -1, prevScrollY: currentScrollY });
     }
 
-    handleScrollDown()
+    //Returns the integer index which corresponds with sectionData's dataArray in props
+    //by comparing the current scrolly and all the sectionHeightMarks
+    getCurrentSectionID()
     {
-        if (this.state.currentSectionIndex == -1)
+        const { sectionHeightMarks: array } = this.state;
+        const currScrollY = window.scrollY;
+
+        //index must be smaller than array.length -1 because the number we r going to return is always going to be index
+        //however since we added an extra element inside of updateSectionsSizes (ie 0), we need to -1 one
+        for (let index = 0; index < array.length - 1; index++)
         {
-            return;
-        }
+            //imagine top point as the top of a box
+            const topPoint = array[index];
+            //Image bot point as the bottom of a box
+            const botPoint = array[index + 1];
 
-        //Set index to -1 to signify that index needs re-calibration
-        this.setState({ currentSectionIndex: -1 });
-    }
-
-    //Returns the section integer(for the sectionHeightMarks array) by comparing the current scrolly and all the sectionHeightMarks
-    calibrateSectionID()
-    {
-        const currentScrollY = window.scrollY;
-        const array = this.state.sectionHeightMarks;
-
-        // for (let index = array.length - 1; index >= 0; index--)
-        // {
-        //     const height = array[index];
-        //     if (currentScrollY >= height)
-        //     {
-        //         this.setState({ currentSectionIndex: index });
-        //         return;
-        //     }
-        // }
-
-        for (let index = 0; index < array.length; index++)
-        {
-            const height = array[index];
-            if (currentScrollY <= height)
+            if (currScrollY >= topPoint && currScrollY < botPoint)
             {
-                this.setState({ currentSectionIndex: index });
-                return;
+                return index;
             }
+
         }
+
     }
 
 
