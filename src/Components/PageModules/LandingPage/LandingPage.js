@@ -10,19 +10,52 @@ import Projects from "./Projects";
 import Footer from "./Footer";
 import NavBar from "./NavBar";
 
+const sectionData =
+{
+    dataArray:
+        [
+            {
+                sectionId: "INTRO",
+                sectionName: "Intro"
+            },
+            {
+                sectionId: "ABOUT",
+                sectionName: "About"
+            },
+            {
+                sectionId: "EDUCATION",
+                sectionName: "Education"
+            },
+            {
+                sectionId: "WORK",
+                sectionName: "Work"
+            },
+            {
+                sectionId: "SKILLS",
+                sectionName: "Skills"
+            },
+            {
+                sectionId: "PROJECTS",
+                sectionName: "Projects"
+            },
+           
+        ]
+};
+
 
 export default function LandingPage(props)
 {
+
     return (
         <div>
-            <NavBar data={style.about} />
+            <NavBar data={sectionData} />
 
-            <Intro data={props.data.socialMediaData} id = "INTRO" />
+            <Intro data={props.data.socialMediaData} id="INTRO" />
 
-            <AboutMe data={props.data.aboutMeData} id = "ABOUT" />
+            <AboutMe data={props.data.aboutMeData} id="ABOUT" />
 
-            <Qualifications data={props.data.qualificationsData}  />
-            <Projects data={props.data.projectsData} id = "PROJECTS"/>
+            <Qualifications data={props.data.qualificationsData} />
+            <Projects data={props.data.projectsData} id="PROJECTS" />
             <Footer data={props.data.socialMediaData} />
         </div>
     );

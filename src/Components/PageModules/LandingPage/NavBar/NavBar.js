@@ -10,8 +10,10 @@ export default class NavBar extends Component
         this.m_NavBarRef = React.createRef();
         this.handleScroll = this.handleScroll.bind(this);
         this.toggleNavBar = this.toggleNavBar.bind(this);
-        this.handleClick = this.handleClick.bind(this);
+        this.handleTransition = this.handleScrollUp.bind(this);
         this.handleWindowResize = this.handleWindowResize.bind(this);
+        this.updateSectionsSizes = this.updateSectionsSizes.bind(this);
+        this.calibrateSectionID = this.calibrateSectionID.bind(this);
         this.state =
         {
             //For the sake of remembering the state
@@ -23,9 +25,8 @@ export default class NavBar extends Component
             // ShownPastTop: This is when user scrolls up and when the distance covered by the nav bar has been passed.
             navBarState: "ShownAtTop",
             prevScrollY: 0,
-            //Initialize this first when the navbar is loaded
-            navBarHeight: 0,
-
+            sectionHeightMarks: [],
+            currentSectionIndex: 0
         }
 
 
@@ -33,16 +34,10 @@ export default class NavBar extends Component
 
 
 
+
     componentDidMount()
     {
-        const height = this.m_NavBarRef.current.clientHeight;
-        this.setState
-            (
-                { navBarHeight: height }
-            )
-
-        console.log(this.state.navBarHeight);
-
+        this.updateSectionsSizes();
         window.addEventListener("scroll", this.handleScroll);
         window.addEventListener("resize", this.handleWindowResize);
     }
@@ -55,22 +50,28 @@ export default class NavBar extends Component
 
     render()
     {
+        const { dataArray } = this.props.data;
+        const listItemJSXArray = [];
+
+
+        for (const data of dataArray)
+        {
+            const { sectionId, sectionName } = data;
+
+            listItemJSXArray.push
+                (
+                    <li><a href={`#${sectionId}`}>{sectionName}</a></li>
+                )
+        }
+
+
+
         //We will render the navBar only on desktop and we will render the navigation button on mobile only
         return (
             <nav>
                 <div className={`${commonStyle.col12} ${style.transition}`} id={style.navBar} ref={this.m_NavBarRef}>
                     <ul className={style.linksContainer}>
-                        <li><a
-                            href={"#INTRO"}
-                            className={style.selectedSection}
-                            onClick={this.handleClick}
-                        >
-                            Intro</a></li>
-                        <li><a href={"#ABOUT"} onClick={this.handleClick} >About</a></li>
-                        <li><a href={"#EDUCATION"} onClick={this.handleClick}>Education</a></li>
-                        <li><a href={"#WORK"} onClick={this.handleClick} >Work</a></li>
-                        <li><a href={"#SKILLS"} onClick={this.handleClick}>Skills</a></li>
-                        <li><a href={"#PROJECTS"} onClick={this.handleClick} >Projects</a></li>
+                        {listItemJSXArray}
                     </ul>
                 </div>
 
@@ -100,18 +101,20 @@ export default class NavBar extends Component
     {
         // Since nav bar is always rendered at the top of the page, we dont need to worry about its position
         const currentScrollY = window.scrollY;
+        //Heights
         const heightOfNavBar = this.m_NavBarRef.current.clientHeight;
-        console.log(heightOfNavBar);
+        // console.log(currentScrollY);
 
-        const { navBarState, navBarHeight } = this.state;
+        const { navBarState } = this.state;
         switch (navBarState)
         {
             case "ShownAtTop":
-                if (currentScrollY > navBarHeight)
+                if (currentScrollY > heightOfNavBar)
                 {
                     this.toggleNavBar();
                     this.setState({ navBarState: "HiddenPastTop", prevScrollY: currentScrollY });
                 }
+
                 break;
 
             case "HiddenPastTop":
@@ -119,12 +122,13 @@ export default class NavBar extends Component
                 //If scroll dir is upwards
                 if (currentScrollY < this.state.prevScrollY)
                 {
-                    const newBarState = currentScrollY <= navBarHeight ? "ShownAtTop" : "ShownPastTop";
+                    const newBarState = currentScrollY <= heightOfNavBar ? "ShownAtTop" : "ShownPastTop";
                     this.toggleNavBar();
                     this.setState({ navBarState: newBarState, prevScrollY: currentScrollY });
                     return;
                 }
 
+                this.handleScrollDown();
                 this.setState({ prevScrollY: currentScrollY });
                 break;
 
@@ -133,19 +137,21 @@ export default class NavBar extends Component
                 if (currentScrollY > this.state.prevScrollY)
                 {
                     this.toggleNavBar();
+                    this.handleScrollDown();
                     this.setState({ navBarState: "HiddenPastTop", prevScrollY: currentScrollY });
                     return;
                 }
 
 
                 //If scroll dir is upwards and scroll is entering navbar's original position
-                if (currentScrollY <= navBarHeight)
+                if (currentScrollY <= heightOfNavBar)
                 {
+                    this.handleScrollUp();
                     this.setState({ navBarState: "ShownAtTop", prevScrollY: currentScrollY });
                     return;
                 }
 
-
+                this.handleScrollUp();
                 this.setState({ prevScrollY: currentScrollY });
                 break;
         }
@@ -154,16 +160,95 @@ export default class NavBar extends Component
     }
 
 
-    //This function will be used for selecting the nav
-    handleClick(event)
+    //This will only be called when you are scrolling upwards
+    handleScrollUp()
     {
-        const currentElementSelected = event.target;
-        console.log(currentElementSelected);
+        if (this.state.currentSectionIndex === -1)
+        {
+            this.calibrateSectionID();
+            return;
+        }
+
+        const currentTarget = this.state.sectionHeightMarks[this.state.currentSectionIndex];
+        const currentScrollY = window.scrollY;
+
+        if (currentScrollY >= currentTarget)
+        {
+            this.setState
+                (
+                    (prevState) =>
+                    {
+                        return { currentSectionIndex: prevState.currentSectionIndex - 1 };
+                    }
+                )
+        }
+
+        // const array = this.state.sectionHeightMarks;
+        // for (let index = array.length - 1; index >= 0; index--)
+        // {
+        //     const height = array[index];
+        //     if (currentScrollY >= height)
+        //     {
+        //         console.log(`Current Scroll: ${currentScrollY} Height: ${height} Index: ${index}`);
+        //         break;
+        //     }
+        // }
+
+
     }
 
+    handleScrollDown()
+    {
+        if (this.state.currentSectionIndex === -1)
+        {
+            return;
+        }
+
+        //Set index to -1 to signify that index needs re-calibration
+        this.setState({ currentSectionIndex: -1 });
+    }
+
+    //Returns the section integer(for the sectionHeightMarks array) by comparing the current scrolly and all the sectionHeightMarks
+    calibrateSectionID()
+    {
+        const currentScrollY = window.scrollY;
+        const array = this.state.sectionHeightMarks;
+
+        for (let index = array.length - 1; index >= 0; index--)
+        {
+            const height = array[index];
+            if (currentScrollY >= height)
+            {
+                this.setState({ currentSectionIndex: index });
+                return;
+            }
+        }
+    }
+
+
+    //Update section sizes only when window resizes
     handleWindowResize()
     {
-        console.log("Hello");
+        this.updateSectionsSizes();
     }
+
+    updateSectionsSizes()
+    {
+        const newSectionMarks = [0];
+        let currentTotalHeight = 0;
+        const { dataArray } = this.props.data;
+
+        //With the IDs from props, we get and store the currentTotalHeight of the elements (which can be found cause we have the ids)
+        //currentTotalHeight is the current total sum of all the elements found so far in the for loop
+        for (const data of dataArray)
+        {
+            const { sectionId } = data;
+            currentTotalHeight += document.getElementById(sectionId).clientHeight;
+            newSectionMarks.push(currentTotalHeight);
+        }
+
+        this.setState({ sectionHeightMarks: newSectionMarks });
+    }
+
 
 }
