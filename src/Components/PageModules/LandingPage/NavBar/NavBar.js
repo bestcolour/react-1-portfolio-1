@@ -103,7 +103,6 @@ export default class NavBar extends Component
         const currentScrollY = window.scrollY;
         //Heights
         const heightOfNavBar = this.m_NavBarRef.current.clientHeight;
-        // console.log(currentScrollY);
 
         const { navBarState } = this.state;
         switch (navBarState)
@@ -163,25 +162,30 @@ export default class NavBar extends Component
     //This will only be called when you are scrolling upwards
     handleScrollUp()
     {
+        //If document has just been scrolled up
         if (this.state.currentSectionIndex === -1)
         {
             this.calibrateSectionID();
             return;
         }
 
-        const currentTarget = this.state.sectionHeightMarks[this.state.currentSectionIndex];
+        const targetIndex = this.state.currentSectionIndex - 1;
+        const currentTarget = this.state.sectionHeightMarks[targetIndex];
         const currentScrollY = window.scrollY;
 
         if (currentScrollY >= currentTarget)
         {
-            this.setState
-                (
-                    (prevState) =>
-                    {
-                        return { currentSectionIndex: prevState.currentSectionIndex - 1 };
-                    }
-                )
+            return;
         }
+
+        this.setState
+            (
+                (prevState) =>
+                {
+                    console.log(prevState.currentSectionIndex -1);
+                    return { currentSectionIndex: (prevState.currentSectionIndex - 1) };
+                }
+            )
 
         // const array = this.state.sectionHeightMarks;
         // for (let index = array.length - 1; index >= 0; index--)
@@ -199,7 +203,7 @@ export default class NavBar extends Component
 
     handleScrollDown()
     {
-        if (this.state.currentSectionIndex === -1)
+        if (this.state.currentSectionIndex == -1)
         {
             return;
         }
@@ -214,10 +218,20 @@ export default class NavBar extends Component
         const currentScrollY = window.scrollY;
         const array = this.state.sectionHeightMarks;
 
-        for (let index = array.length - 1; index >= 0; index--)
+        // for (let index = array.length - 1; index >= 0; index--)
+        // {
+        //     const height = array[index];
+        //     if (currentScrollY >= height)
+        //     {
+        //         this.setState({ currentSectionIndex: index });
+        //         return;
+        //     }
+        // }
+
+        for (let index = 0; index < array.length; index++)
         {
             const height = array[index];
-            if (currentScrollY >= height)
+            if (currentScrollY <= height)
             {
                 this.setState({ currentSectionIndex: index });
                 return;
@@ -246,6 +260,7 @@ export default class NavBar extends Component
             currentTotalHeight += document.getElementById(sectionId).clientHeight;
             newSectionMarks.push(currentTotalHeight);
         }
+        console.log(newSectionMarks);
 
         this.setState({ sectionHeightMarks: newSectionMarks });
     }
