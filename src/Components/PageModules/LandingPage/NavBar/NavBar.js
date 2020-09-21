@@ -96,6 +96,28 @@ export default class NavBar extends Component
         this.m_NavBarRef.current.classList.toggle(style.hide);
     }
 
+    //Must be placed after setstate
+    changeSelectedSection()
+    {
+        // for (let index = 0; index < array.length; index++)
+        // {
+        //     const element = array[index];
+
+        // }
+
+        //Hide the old one
+        let a = document.getElementsByClassName(style.selectedSection);
+        a.classList.remove(style.selectedSection);
+
+        a = this.state.currentSectionIndex;
+        //Get the name of the section id
+        a = this.state.sectionHeightMarks[a];
+
+
+
+
+    }
+
 
     handleScroll()
     {
@@ -161,14 +183,13 @@ export default class NavBar extends Component
 
     ShownPastTop_handleScrollUp()
     {
-
         let currentIndex = this.state.currentSectionIndex;
         const currentScrollY = window.scrollY;
 
         if (currentIndex === -1)
         {
-
             this.setState({ currentSectionIndex: this.getCurrentSectionID(), prevScrollY: currentScrollY });
+            changeSelectedSection();
             return;
         }
 

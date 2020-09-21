@@ -31,7 +31,7 @@
 
 
 /* To be assigned to a li */
-.selectedSection 
+.selectedSection *
 {
     color: #F06000 !important;
 }
