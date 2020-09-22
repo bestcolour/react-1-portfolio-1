@@ -12,6 +12,7 @@ export default class NavBar extends Component
         // this.toggleNavBar = this.toggleNavBar.bind(this);
         // this.ShownPastTop_handleScrollUp = this.ShownPastTop_handleScrollUp.bind(this);
         this.handleWindowResize = this.handleWindowResize.bind(this);
+        this.changeSelectedSection = this.changeSelectedSection.bind(this);
         // this.updateSectionsSizes = this.updateSectionsSizes.bind(this);
         // this.getCurrentSectionID = this.getCurrentSectionID.bind(this);
         this.state =
@@ -38,6 +39,8 @@ export default class NavBar extends Component
     componentDidMount()
     {
         this.updateSectionsSizes();
+        // this.setState({ currentSectionIndex: this.getCurrentSectionID() });
+        // this.changeSelectedSection();
         window.addEventListener("scroll", this.handleScroll);
         window.addEventListener("resize", this.handleWindowResize);
     }
@@ -60,7 +63,7 @@ export default class NavBar extends Component
 
             listItemJSXArray.push
                 (
-                    <li><a href={`#${sectionId}`}>{sectionName}</a></li>
+                    <li id={`nav-${sectionId}`}><a href={`#${sectionId}`}>{sectionName}</a></li>
                 )
         }
 
@@ -99,22 +102,20 @@ export default class NavBar extends Component
     //Must be placed after setstate
     changeSelectedSection()
     {
-        // for (let index = 0; index < array.length; index++)
-        // {
-        //     const element = array[index];
+        //Clear the prev elements' of the class
+        const array = this.props.data.dataArray;
+        for (let index = 0; index < array.length; index++)
+        {
+            const sectionID = `nav-${array[index].sectionId}`;
 
-        // }
+            const element = document.getElementById(sectionID);
+            element.classList.remove(style.selectedSection);
+        }
 
-        //Hide the old one
-        let a = document.getElementsByClassName(style.selectedSection);
-        a.classList.remove(style.selectedSection);
+        //Set new class to new element
 
-        a = this.state.currentSectionIndex;
-        //Get the name of the section id
-        a = this.state.sectionHeightMarks[a];
-
-
-
+        const newSectionID = `nav-${array[this.state.currentSectionIndex].sectionId}`;
+        document.getElementById(newSectionID).classList.add(style.selectedSection);
 
     }
 
@@ -189,19 +190,27 @@ export default class NavBar extends Component
         if (currentIndex === -1)
         {
             this.setState({ currentSectionIndex: this.getCurrentSectionID(), prevScrollY: currentScrollY });
-            changeSelectedSection();
+            this.changeSelectedSection();
             return;
         }
 
         //Set curr index to section's top index (in relation to sectionHeightMarks)
         currentIndex = this.state.currentSectionIndex;
+        //Get the top point of the prev section to indicate that you have reached a new section
+        // const topPoint = currentIndex > 0 ? this.state.sectionHeightMarks[currentIndex - 1] : this.state.sectionHeightMarks[currentIndex];
         const topPoint = this.state.sectionHeightMarks[currentIndex];
+        // const botPoint = this.state.sectionHeightMarks[currentIndex + 1];
+
+        console.log(currentScrollY,topPoint);
+
 
         //When u scroll up, currentScrollY becomes smaller
         //So when your scroll y is smaller than the bot point of the section,
-        if (currentScrollY < topPoint)
+        if (currentScrollY <= topPoint)
         {
+            //Change the section id
             currentIndex--;
+            this.changeSelectedSection();
             this.setState
                 (
                     { prevScrollY: currentScrollY, currentSectionIndex: currentIndex }
