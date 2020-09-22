@@ -197,6 +197,7 @@ export default class NavBar extends Component
         if (currentIndex === -1)
         {
             this.setState({ currentSectionIndex: this.getCurrentSectionIndex(this.state.sectionHeightMarks), prevScrollY: currentScrollY });
+            //Needs to be placed after current section index is set.
             this.changeSelectedSection(this.state.currentSectionIndex);
             return;
         }
@@ -204,19 +205,22 @@ export default class NavBar extends Component
         //Set curr index to section's top index (in relation to sectionHeightMarks)
         currentIndex = this.state.currentSectionIndex;
         //Get the top point of the prev section to indicate that you have reached a new section
-        // const topPoint = currentIndex > 0 ? this.state.sectionHeightMarks[currentIndex - 1] : this.state.sectionHeightMarks[currentIndex];
-        const topPoint = this.state.sectionHeightMarks[currentIndex];
-        // const botPoint = this.state.sectionHeightMarks[currentIndex + 1];
-
-        console.log(currentScrollY, topPoint);
+        //there is an exception for when currentIndex ==0, since this.state.sectionHeightMarks[0] = 0,
+        //top scrollY will never reach lesser than 0 hence, i gave topPoint the value of 
+        //this.state.sectionHeightMarks[0+1]*0.5 to say that "hey you reached section 0"
+        const topPoint = currentIndex > 0 ? this.state.sectionHeightMarks[currentIndex] : this.state.sectionHeightMarks[currentIndex+1]*0.5;
 
 
         //When u scroll up, currentScrollY becomes smaller
-        //So when your scroll y is smaller than the bot point of the section,
+        //So when your scroll y is smaller than the top point of the section,
         if (currentScrollY <= topPoint)
         {
             //Change the section id
             currentIndex--;
+            //I change selected section before setting a new index
+            //this means that when currentIndex = 1, selected section is 2 
+            //(this gives the effect of actually having to scroll pass section 3 before selection
+            //goes to 2)
             this.changeSelectedSection(this.state.currentSectionIndex);
             this.setState
                 (
@@ -247,7 +251,6 @@ export default class NavBar extends Component
     {
         // const array = this.state.sectionHeightMarks;
         const currScrollY = window.scrollY;
-        console.log(currScrollY, sectionMarksArray);
         //index must be smaller than array.length -1 because the number we r going to return is always going to be index
         //however since we added an extra element inside of updateSectionsSizes (ie 0), we need to -1 one
         for (let index = 0; index < sectionMarksArray.length - 1; index++)
@@ -259,7 +262,6 @@ export default class NavBar extends Component
 
             if (currScrollY >= topPoint && currScrollY < botPoint)
             {
-                console.log(index);
                 return index;
             }
 
