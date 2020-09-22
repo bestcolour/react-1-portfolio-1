@@ -12,7 +12,7 @@ export default class NavBar extends Component
         // this.toggleNavBar = this.toggleNavBar.bind(this);
         // this.ShownPastTop_handleScrollUp = this.ShownPastTop_handleScrollUp.bind(this);
         this.handleWindowResize = this.handleWindowResize.bind(this);
-        this.changeSelectedSection = this.changeSelectedSection.bind(this);
+        // this.changeSelectedSection = this.changeSelectedSection.bind(this);
         // this.updateSectionsSizes = this.updateSectionsSizes.bind(this);
         // this.getCurrentSectionID = this.getCurrentSectionID.bind(this);
         this.state =
@@ -34,13 +34,21 @@ export default class NavBar extends Component
     }
 
 
+    initialise()
+    {
+        //So i apparently cant get this.state."values name" when i am inside this componentDidMount scope 
+        //even though i called "setstate before logging the value"
+        //So i changed all of the functions into functions that require a parameter
+        const newSectionSize = this.getNewSectionsSizes();
+        const currSectionIndex = this.getCurrentSectionIndex(newSectionSize);
 
+        this.changeSelectedSection(currSectionIndex);
+        this.setState({ sectionHeightMarks: newSectionSize, currentSectionIndex: currSectionIndex });
+    }
 
     componentDidMount()
     {
-        this.updateSectionsSizes();
-        // this.setState({ currentSectionIndex: this.getCurrentSectionID() });
-        // this.changeSelectedSection();
+        this.initialise();
         window.addEventListener("scroll", this.handleScroll);
         window.addEventListener("resize", this.handleWindowResize);
     }
@@ -92,15 +100,14 @@ export default class NavBar extends Component
     }
 
 
-    //<===========================METHODS=====================================>
+    //<===========================SUPPORTING METHODS=====================================>
 
     toggleNavBar()
     {
         this.m_NavBarRef.current.classList.toggle(style.hide);
     }
 
-    //Must be placed after setstate
-    changeSelectedSection()
+    changeSelectedSection(currentSectionIndex)
     {
         //Clear the prev elements' of the class
         const array = this.props.data.dataArray;
@@ -113,8 +120,8 @@ export default class NavBar extends Component
         }
 
         //Set new class to new element
-
-        const newSectionID = `nav-${array[this.state.currentSectionIndex].sectionId}`;
+        const newSectionID = `nav-${array[currentSectionIndex].sectionId}`;
+        // const newSectionID = `nav-${array[this.state.currentSectionIndex].sectionId}`;
         document.getElementById(newSectionID).classList.add(style.selectedSection);
 
     }
@@ -189,8 +196,8 @@ export default class NavBar extends Component
 
         if (currentIndex === -1)
         {
-            this.setState({ currentSectionIndex: this.getCurrentSectionID(), prevScrollY: currentScrollY });
-            this.changeSelectedSection();
+            this.setState({ currentSectionIndex: this.getCurrentSectionIndex(this.state.sectionHeightMarks), prevScrollY: currentScrollY });
+            this.changeSelectedSection(this.state.currentSectionIndex);
             return;
         }
 
@@ -201,7 +208,7 @@ export default class NavBar extends Component
         const topPoint = this.state.sectionHeightMarks[currentIndex];
         // const botPoint = this.state.sectionHeightMarks[currentIndex + 1];
 
-        console.log(currentScrollY,topPoint);
+        console.log(currentScrollY, topPoint);
 
 
         //When u scroll up, currentScrollY becomes smaller
@@ -210,7 +217,7 @@ export default class NavBar extends Component
         {
             //Change the section id
             currentIndex--;
-            this.changeSelectedSection();
+            this.changeSelectedSection(this.state.currentSectionIndex);
             this.setState
                 (
                     { prevScrollY: currentScrollY, currentSectionIndex: currentIndex }
@@ -236,22 +243,23 @@ export default class NavBar extends Component
 
     //Returns the integer index which corresponds with sectionData's dataArray in props
     //by comparing the current scrolly and all the sectionHeightMarks
-    getCurrentSectionID()
+    getCurrentSectionIndex(sectionMarksArray)
     {
-        const { sectionHeightMarks: array } = this.state;
+        // const array = this.state.sectionHeightMarks;
         const currScrollY = window.scrollY;
-
+        console.log(currScrollY, sectionMarksArray);
         //index must be smaller than array.length -1 because the number we r going to return is always going to be index
         //however since we added an extra element inside of updateSectionsSizes (ie 0), we need to -1 one
-        for (let index = 0; index < array.length - 1; index++)
+        for (let index = 0; index < sectionMarksArray.length - 1; index++)
         {
             //imagine top point as the top of a box
-            const topPoint = array[index];
+            const topPoint = sectionMarksArray[index];
             //Image bot point as the bottom of a box
-            const botPoint = array[index + 1];
+            const botPoint = sectionMarksArray[index + 1];
 
             if (currScrollY >= topPoint && currScrollY < botPoint)
             {
+                console.log(index);
                 return index;
             }
 
@@ -263,10 +271,10 @@ export default class NavBar extends Component
     //Update section sizes only when window resizes
     handleWindowResize()
     {
-        this.updateSectionsSizes();
+        this.setState({ sectionHeightMarks: this.getNewSectionsSizes() });
     }
 
-    updateSectionsSizes()
+    getNewSectionsSizes()
     {
         const newSectionMarks = [0];
         let currentTotalHeight = 0;
@@ -280,9 +288,9 @@ export default class NavBar extends Component
             currentTotalHeight += document.getElementById(sectionId).clientHeight;
             newSectionMarks.push(currentTotalHeight);
         }
-        console.log(newSectionMarks);
 
-        this.setState({ sectionHeightMarks: newSectionMarks });
+        console.log(newSectionMarks);
+        return newSectionMarks;
     }
 
 
