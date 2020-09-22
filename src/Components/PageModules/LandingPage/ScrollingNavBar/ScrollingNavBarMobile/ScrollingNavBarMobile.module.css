@@ -1,0 +1,72 @@
+
+#navBarMobile
+{
+   position: fixed;
+   right: 10%;
+
+   display : flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   flex-wrap: nowrap;
+
+   z-index: 10;
+   border: 0;
+   width: 3em;
+   height: 3em;
+   background-color:orange ;
+}
+
+#navBarMobile:hover
+{
+   cursor: pointer;
+}
+
+
+
+
+#stripe1
+{
+   width: 50%;
+   height: 10%;
+
+   margin-left: 25%;
+   margin-right: 25%;
+   margin-top: 30%;
+   margin-bottom: 10%;
+
+   background-color: white;
+
+}
+
+#stripe2
+{
+   width: 50%;
+   height: 10%;
+
+   margin-left: 25%;
+   margin-right: 25%;
+   margin-bottom: 30%;
+   margin-top: 10%;
+
+   background-color: white;
+
+}
+
+
+#navBarMobile
+ {
+     display : block;
+     position: fixed;
+ }
+
+ @media only screen and (min-width: 768px) 
+{
+
+
+    #navBarMobile
+    {
+        display : none;
+    }
+    
+}

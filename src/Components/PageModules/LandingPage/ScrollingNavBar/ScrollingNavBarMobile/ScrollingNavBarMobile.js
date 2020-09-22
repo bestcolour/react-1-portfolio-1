@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import commonStyle from "../../../pageMod.module.css";
-import style from "../ScrollingNavBar.module.css";
+import style from "./ScrollingNavBarMobile.module.css";
 
 export default class ScrollingNavBarMobile extends Component
 {

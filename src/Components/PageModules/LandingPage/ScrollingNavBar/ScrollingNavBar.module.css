@@ -1,110 +1,9 @@
 /* <================================================FOR ALL START==============================================================================> */
-/* <==================================DESKTOP START========================================> */
-#navBarDesktop
-{
-    z-index: 10;
-    background-color: #2B2B2B;
-    box-shadow: 0px 2px 3.5px #2B2B2B;
-    opacity: 1;
-    visibility: visible;
-}
-
-
-.linksContainer *
-{
-    text-decoration :none;
-    list-style-type: none;
-}
-
-.transition 
-{    
-    -webkit-transition: all .25s ease-in-out;
-    -moz-transition: all .25s ease-in-out;
-    -o-transition: all .25s ease-in-out;
-    transition: all .25s ease-in-out;
-  }
-
-.hide
-{
-    opacity:0 !important;
-    visibility: hidden !important;
-}
-
-
-/* To be assigned to a li */
-.selectedSection *
-{
-    color: #F06000 !important;
-}
-
-.linksContainer li a
-{
-    color: whitesmoke;
-}
-.linksContainer li a:hover
-{
-    cursor: pointer;
-}
-
-/* <==================================DESKTOP END========================================> */
 
 
 
 /* <==================================MOBILE START========================================> */
 
-#navBarMobile
- {
-    position: fixed;
-    right: 10%;
-
-    display : flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: nowrap;
-
-    z-index: 10;
-    border: 0;
-    width: 3em;
-    height: 3em;
-    background-color:orange ;
-}
-
-#navBarMobile:hover
-{
-    cursor: pointer;
-}
-
-
-
-
-#stripe1
-{
-    width: 50%;
-    height: 10%;
-
-    margin-left: 25%;
-    margin-right: 25%;
-    margin-top: 30%;
-    margin-bottom: 10%;
-
-    background-color: white;
-
-}
-
-#stripe2
-{
-    width: 50%;
-    height: 10%;
-
-    margin-left: 25%;
-    margin-right: 25%;
-    margin-bottom: 30%;
-    margin-top: 10%;
-
-    background-color: white;
-
-}
 
 /* <==================================MOBILE END========================================> */
 
@@ -114,19 +13,11 @@
 /* <================================================MOBILE PLATFORM START==============================================================================> */
 
 
- #navBarDesktop
- {
-     display: none;
- }
 
 
 /* <==================================MOBILE START========================================> */
 
-#navBarMobile
- {
-     display : block;
-     position: fixed;
- }
+
 
 
 /* <==================================MOBILE END========================================> */
@@ -136,41 +27,6 @@
  
 /* <================================================DESKTOP PLATFORM START==============================================================================> */
 
-@media only screen and (min-width: 768px) 
-{
-/* <==================================DESKTOP START========================================> */
-    #navBarDesktop
-    {
-        display: block;
-        position: fixed;  
-    }
 
-    .linksContainer
-    {
-        margin: 0 7%;
-    
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-    
-    .linksContainer li
-    {
-        margin: .7em 1em;
-    
-        text-align: center;
-        text-transform: uppercase;
-        font-size: 1em;
-    }
-/* <==================================DESKTOP END========================================> */
-
-
-
-    #navBarMobile
-    {
-        display : none;
-    }
-    
-}
 /* <================================================DESKTOP PLATFORM END==============================================================================> */
 
