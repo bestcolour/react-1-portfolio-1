@@ -1,91 +1,58 @@
-#navBarMobile
+#navBarMobileContainer
 {
+   display: block;
+}
+
+.transition
+{
+   transition: all 0.5s ease-in-out;
+   -webkit-transition: all 0.5s ease-in-out;
+   -moz-transition: all 0.5s ease-in-out;
+   -o-transition: all 0.5s ease-in-out;
+}
+
+#darkOverlay
+{
+   background-color: black;
+   opacity:0;
+   width: 100vw;
+   height: 100vh;
+
    position: fixed;
-   right: 0%;
-   top: -16%;
-
-   display : flex;
-   flex-direction: column;
-   justify-content: center;
-   align-items: center;
-   flex-wrap: nowrap;
-
-   z-index: 10;
-   border: 0;
-   width: 3em;
-   height: 10em;
-   background-color:orange ;
+   z-index: 11;
 }
 
-#navBarMobile:hover
+/* Add this to dark overlay */
+.showOverlay
 {
-   cursor: pointer;
-}
-
-#hiddenContainer
-{
-   width: 100%;
-height: 65%;
-}
-
-#shownContainer
-{
-   width: 100%;
-height: 35%;
-
-}
-
-.transition 
-{    
-    -webkit-transition: all .5s ease-in-out;
-    -moz-transition: all .5s ease-in-out;
-    -o-transition: all .5s ease-in-out;
-    transition: all .5s ease-in-out;
-  }
-
-
-#stripe1
-{
-   width: 50%;
-   height: 10%;
-
-   margin-left: 25%;
-   margin-right: 25%;
-   margin-top: 30%;
-   margin-bottom: 10%;
-
-   background-color: white;
-
-}
-
-#stripe2
-{
-   width: 50%;
-   height: 10%;
-
-   margin-left: 25%;
-   margin-right: 25%;
-   margin-bottom: 30%;
-   margin-top: 10%;
-
-   background-color: white;
-
+   opacity: .5!important;
 }
 
 
-#navBarMobile
- {
-     display : block;
-     position: fixed;
- }
 
- @media only screen and (min-width: 768px) 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* desktop */
+@media only screen and  (min-width: 1024px) 
 {
-
-
-    #navBarMobile
-    {
-        display : none;
-    }
-    
+   #navBarMobileContainer
+   {
+      display: none;
+   }
 }

@@ -16,6 +16,8 @@ export default class ScrollingNavBarMobile extends Component
     {
         console.log("Hello");
 
+        //Toggle overlay
+        document.getElementById(style.darkOverlay).classList.toggle(style.showOverlay);
 
 
     }
@@ -23,18 +25,11 @@ export default class ScrollingNavBarMobile extends Component
     render()
     {
         return (
-            <div id={style.navBarMobile} onClick={this.handleClick} className = {style.transition}>
-
-                <div id ={style.hiddenContainer}>
-                </div>
-
-                <div id ={style.shownContainer}>
-                    <div id={style.stripe1} />
-                    <div id={style.stripe2} />
-                </div>
+            <nav id={style.navBarMobileContainer}>
+                <div id={style.darkOverlay} className={`${style.transition} `} />
 
 
-            </div>
+            </nav>
         );
     }
 }
