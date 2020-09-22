@@ -1,11 +1,6 @@
-/* For all */
-.linksContainer *
-{
-    text-decoration :none;
-    list-style-type: none;
-}
-
-#navBar
+/* <================================================FOR ALL START==============================================================================> */
+/* <==================================DESKTOP START========================================> */
+#navBarDesktop
 {
     z-index: 10;
     background-color: #2B2B2B;
@@ -14,6 +9,12 @@
     visibility: visible;
 }
 
+
+.linksContainer *
+{
+    text-decoration :none;
+    list-style-type: none;
+}
 
 .transition 
 {    
@@ -45,34 +46,103 @@
     cursor: pointer;
 }
 
+/* <==================================DESKTOP END========================================> */
 
 
 
-/* For mobile */
- #navBar
+/* <==================================MOBILE START========================================> */
+
+#navBarMobile
+ {
+    position: fixed;
+    right: 10%;
+
+    display : flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+
+    z-index: 10;
+    border: 0;
+    width: 3em;
+    height: 3em;
+    background-color:orange ;
+}
+
+#navBarMobile:hover
+{
+    cursor: pointer;
+}
+
+
+
+
+#stripe1
+{
+    width: 50%;
+    height: 10%;
+
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-top: 30%;
+    margin-bottom: 10%;
+
+    background-color: white;
+
+}
+
+#stripe2
+{
+    width: 50%;
+    height: 10%;
+
+    margin-left: 25%;
+    margin-right: 25%;
+    margin-bottom: 30%;
+    margin-top: 10%;
+
+    background-color: white;
+
+}
+
+/* <==================================MOBILE END========================================> */
+
+
+/* <================================================FOR ALL END==============================================================================> */
+
+/* <================================================MOBILE PLATFORM START==============================================================================> */
+
+
+ #navBarDesktop
  {
      display: none;
  }
 
- #navButton
+
+/* <==================================MOBILE START========================================> */
+
+#navBarMobile
  {
      display : block;
      position: fixed;
  }
 
 
-/* For desktop */
+/* <==================================MOBILE END========================================> */
+
+/* <================================================MOBILE PLATFORM END==============================================================================> */
+
+ 
+/* <================================================DESKTOP PLATFORM START==============================================================================> */
+
 @media only screen and (min-width: 768px) 
 {
-    #navBar
+/* <==================================DESKTOP START========================================> */
+    #navBarDesktop
     {
         display: block;
         position: fixed;  
-    }
-
-    #navButton
-    {
-        display : none;
     }
 
     .linksContainer
@@ -92,6 +162,15 @@
         text-transform: uppercase;
         font-size: 1em;
     }
+/* <==================================DESKTOP END========================================> */
+
+
+
+    #navBarMobile
+    {
+        display : none;
+    }
     
 }
+/* <================================================DESKTOP PLATFORM END==============================================================================> */
 

@@ -1,7 +1,4 @@
 import React from "react";
-//css
-import style from "./LandingPage.module.css";
-
 //Importing components
 import Intro from "./Intro";
 import AboutMe from "./AboutMe";

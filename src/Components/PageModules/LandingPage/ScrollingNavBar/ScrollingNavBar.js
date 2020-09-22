@@ -3,14 +3,14 @@ import commonStyle from "../../pageMod.module.css";
 import style from "./ScrollingNavBar.module.css";
 //Components
 import ScrollingNavBarDesktop from "./ScrollingNavBarDesktop";
+import ScrollingNavBarMobile from "./ScrollingNavBarMobile";
 
 export default function ScrollingNavBar(props)
 {
     return (
         <nav>
-            <ScrollingNavBarDesktop data = {props.data.desktopData}/>
-
-
+            <ScrollingNavBarDesktop data={props.data.desktopData} />
+            <ScrollingNavBarMobile />
 
         </nav>
 

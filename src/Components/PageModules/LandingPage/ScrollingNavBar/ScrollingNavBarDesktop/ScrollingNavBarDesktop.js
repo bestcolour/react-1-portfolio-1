@@ -7,7 +7,7 @@ export default class ScrollingNavBarDesktop extends Component
     constructor()
     {
         super();
-        this.m_NavBarRef = React.createRef();
+        this.m_NavBarDesktopRef = React.createRef();
         this.handleScroll = this.handleScroll.bind(this);
         this.handleWindowResize = this.handleWindowResize.bind(this);
         this.state =
@@ -71,7 +71,7 @@ export default class ScrollingNavBarDesktop extends Component
 
         //We will render the navBar only on desktop
         return (
-                <div className={`${commonStyle.col12} ${style.transition}`} id={style.navBar} ref={this.m_NavBarRef}>
+                <div className={`${commonStyle.col12} ${style.transition}`} id={style.navBarDesktop} ref={this.m_NavBarDesktopRef}>
                     <ul className={style.linksContainer}>
                         {listItemJSXArray}
                     </ul>
@@ -83,7 +83,7 @@ export default class ScrollingNavBarDesktop extends Component
 
     toggleNavBar()
     {
-        this.m_NavBarRef.current.classList.toggle(style.hide);
+        this.m_NavBarDesktopRef.current.classList.toggle(style.hide);
     }
 
     changeSelectedSection(currentSectionIndex)
@@ -111,7 +111,7 @@ export default class ScrollingNavBarDesktop extends Component
         // Since nav bar is always rendered at the top of the page, we dont need to worry about its position
         const currentScrollY = window.scrollY;
         //Heights
-        const heightOfNavBar = this.m_NavBarRef.current.clientHeight;
+        const heightOfNavBar = this.m_NavBarDesktopRef.current.clientHeight;
 
         const { navBarState } = this.state;
         switch (navBarState)
