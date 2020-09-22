@@ -1,8 +1,8 @@
-
 #navBarMobile
 {
    position: fixed;
-   right: 10%;
+   right: 0%;
+   top: -16%;
 
    display : flex;
    flex-direction: column;
@@ -13,7 +13,7 @@
    z-index: 10;
    border: 0;
    width: 3em;
-   height: 3em;
+   height: 10em;
    background-color:orange ;
 }
 
@@ -22,7 +22,26 @@
    cursor: pointer;
 }
 
+#hiddenContainer
+{
+   width: 100%;
+height: 65%;
+}
 
+#shownContainer
+{
+   width: 100%;
+height: 35%;
+
+}
+
+.transition 
+{    
+    -webkit-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+  }
 
 
 #stripe1

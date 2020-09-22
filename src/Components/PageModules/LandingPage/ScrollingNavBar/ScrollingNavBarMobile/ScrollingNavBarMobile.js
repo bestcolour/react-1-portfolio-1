@@ -17,16 +17,21 @@ export default class ScrollingNavBarMobile extends Component
         console.log("Hello");
 
 
-        
+
     }
 
     render()
     {
         return (
-            <div id={style.navBarMobile} onClick={this.handleClick} >
+            <div id={style.navBarMobile} onClick={this.handleClick} className = {style.transition}>
 
-                <div id={style.stripe1} />
-                <div id={style.stripe2} />
+                <div id ={style.hiddenContainer}>
+                </div>
+
+                <div id ={style.shownContainer}>
+                    <div id={style.stripe1} />
+                    <div id={style.stripe2} />
+                </div>
 
 
             </div>
