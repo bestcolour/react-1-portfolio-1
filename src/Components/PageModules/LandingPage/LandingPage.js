@@ -12,34 +12,41 @@ import ScrollingNavBar from "./ScrollingNavBar";
 
 const sectionData =
 {
-    dataArray:
-        [
-            {
-                sectionId: "INTRO",
-                sectionName: "Intro"
-            },
-            {
-                sectionId: "ABOUT",
-                sectionName: "About"
-            },
-            {
-                sectionId: "EDUCATION",
-                sectionName: "Education"
-            },
-            {
-                sectionId: "WORK",
-                sectionName: "Work"
-            },
-            {
-                sectionId: "SKILLS",
-                sectionName: "Skills"
-            },
-            {
-                sectionId: "PROJECTS",
-                sectionName: "Projects"
-            },
-           
-        ]
+    desktopData:
+    {
+        dataArray:
+            [
+                {
+                    sectionId: "INTRO",
+                    sectionName: "Intro"
+                },
+                {
+                    sectionId: "ABOUT",
+                    sectionName: "About"
+                },
+                {
+                    sectionId: "EDUCATION",
+                    sectionName: "Education"
+                },
+                {
+                    sectionId: "WORK",
+                    sectionName: "Work"
+                },
+                {
+                    sectionId: "SKILLS",
+                    sectionName: "Skills"
+                },
+                {
+                    sectionId: "PROJECTS",
+                    sectionName: "Projects"
+                },
+
+            ]
+    }
+
+
+
+    
 };
 
 
