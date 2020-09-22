@@ -8,7 +8,7 @@ import AboutMe from "./AboutMe";
 import Qualifications from "./Qualifications";
 import Projects from "./Projects";
 import Footer from "./Footer";
-import NavBar from "./NavBar";
+import ScrollingNavBar from "./ScrollingNavBar";
 
 const sectionData =
 {
@@ -48,7 +48,7 @@ export default function LandingPage(props)
 
     return (
         <div>
-            <NavBar data={sectionData} />
+            <ScrollingNavBar data={sectionData} />
 
             <Intro data={props.data.socialMediaData} id="INTRO" />
 

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import commonStyle from "../../pageMod.module.css";
-import style from "./NavBar.module.css";
+import style from "./ScrollingNavBar.module.css";
 
 export default class NavBar extends Component
 {
@@ -9,12 +9,7 @@ export default class NavBar extends Component
         super();
         this.m_NavBarRef = React.createRef();
         this.handleScroll = this.handleScroll.bind(this);
-        // this.toggleNavBar = this.toggleNavBar.bind(this);
-        // this.ShownPastTop_handleScrollUp = this.ShownPastTop_handleScrollUp.bind(this);
         this.handleWindowResize = this.handleWindowResize.bind(this);
-        // this.changeSelectedSection = this.changeSelectedSection.bind(this);
-        // this.updateSectionsSizes = this.updateSectionsSizes.bind(this);
-        // this.getCurrentSectionID = this.getCurrentSectionID.bind(this);
         this.state =
         {
             //For the sake of remembering the state
@@ -29,10 +24,7 @@ export default class NavBar extends Component
             sectionHeightMarks: [],
             currentSectionIndex: -1
         }
-
-
     }
-
 
     initialise()
     {
@@ -98,7 +90,6 @@ export default class NavBar extends Component
 
         );
     }
-
 
     //<===========================SUPPORTING METHODS=====================================>
 
@@ -187,8 +178,6 @@ export default class NavBar extends Component
 
     }
 
-
-
     ShownPastTop_handleScrollUp()
     {
         let currentIndex = this.state.currentSectionIndex;
@@ -268,7 +257,6 @@ export default class NavBar extends Component
         }
 
     }
-
 
     //Update section sizes only when window resizes
     handleWindowResize()
