@@ -53,7 +53,8 @@ export default class ScrollingNavBarDesktop extends Component
 
     render()
     {
-        const { dataArray } = this.props.data;
+        console.log(this.props.data.length);
+        const dataArray = this.props.data;
         const listItemJSXArray = [];
 
 
@@ -71,11 +72,11 @@ export default class ScrollingNavBarDesktop extends Component
 
         //We will render the navBar only on desktop
         return (
-                <div className={`${commonStyle.col12} ${style.transition}`} id={style.navBarDesktop} ref={this.m_NavBarDesktopRef}>
-                    <ul className={style.linksContainer}>
-                        {listItemJSXArray}
-                    </ul>
-                </div>
+            <div className={`${commonStyle.col12} ${style.transition}`} id={style.navBarDesktop} ref={this.m_NavBarDesktopRef}>
+                <ul className={style.linksContainer}>
+                    {listItemJSXArray}
+                </ul>
+            </div>
         );
     }
 

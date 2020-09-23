@@ -7,8 +7,8 @@ export default function ScrollingNavBar(props)
 {
     return (
         <nav>
-            <ScrollingNavBarDesktop data={props.data.desktopData} />
-            <ScrollingNavBarMobile />
+            <ScrollingNavBarDesktop data={props.data.dataArray} />
+            <ScrollingNavBarMobile data={props.data.dataArray}/>
         </nav>
     );
 }

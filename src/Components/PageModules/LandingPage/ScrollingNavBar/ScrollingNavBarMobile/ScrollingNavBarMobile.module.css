@@ -19,20 +19,72 @@
    height: 100vh;
 
    position: fixed;
-   z-index: 11;
+   z-index: -1;
 }
 
 /* Add this to dark overlay */
 .showOverlay
 {
    opacity: .5!important;
+   z-index: 11!important;
+}
+
+#sideButton
+{
+   background-color: #F06000;
+   height: 3em;
+   width: 3em;
+
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+
+   position: fixed;
+   right: 0%;
+   z-index: 11;
+}
+
+#sideButton:hover
+{
+   cursor: pointer;
+}
+
+.stripe
+{
+   background-color: white;
+   width: 50%;
+   height: 10%;
+
+   margin: 10% 0;
 }
 
 
+#sideMenu
+{
+   height: 100vh;
+   width: 50vw;
+   
+   display: flex;
+   flex-direction: column;
 
+   position:  fixed;
+   right: -50%;
+   z-index: 12;
+   background-color: #1a1a1a;
 
+}
 
+#sideMenu *
+{
+   color: white;
+}
 
+/* Add this to sideMenu*/
+.showSideMenu
+{
+   right:0% !important;
+}
 
 
 
