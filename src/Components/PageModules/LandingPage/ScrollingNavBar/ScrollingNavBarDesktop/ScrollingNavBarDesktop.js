@@ -53,8 +53,7 @@ export default class ScrollingNavBarDesktop extends Component
 
     render()
     {
-        console.log(this.props.data.length);
-        const dataArray = this.props.data;
+        const {dataArray} = this.props.data;
         const listItemJSXArray = [];
 
 
@@ -268,7 +267,7 @@ export default class ScrollingNavBarDesktop extends Component
             newSectionMarks.push(currentTotalHeight);
         }
 
-        console.log(newSectionMarks);
+        // console.log(newSectionMarks);
         return newSectionMarks;
     }
 

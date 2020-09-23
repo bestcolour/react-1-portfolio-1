@@ -67,6 +67,9 @@
    
    display: flex;
    flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   text-align: center;
 
    position:  fixed;
    right: -50%;
@@ -75,9 +78,13 @@
 
 }
 
-#sideMenu *
+#sideMenu a
 {
    color: white;
+
+   text-decoration: none;
+
+   font-size: 1em;
 }
 
 /* Add this to sideMenu*/
@@ -87,7 +94,19 @@
 }
 
 
+/* Portrait only */
+#sideMenu a
+{
+   margin: 10% 0;
+}
 
+@media only screen and (orientation: landscape)
+{
+   #sideMenu a
+   {
+      margin: 5% 0;
+   }
+}
 
 
 

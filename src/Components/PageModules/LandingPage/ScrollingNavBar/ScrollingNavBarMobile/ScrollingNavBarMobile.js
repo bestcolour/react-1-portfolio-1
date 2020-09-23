@@ -23,9 +23,23 @@ export default class ScrollingNavBarMobile extends Component
 
     render()
     {
+        const { dataArray } = this.props.data;
+
+        const finalJSX = [];
+
+        for (const data of dataArray)
+        {
+            finalJSX.push
+                (
+                    <a href={`#${data.sectionId}`}>
+                        {data.sectionName}
+                    </a>
+                );
+        }
+
         return (
             <nav id={style.navBarMobileContainer}>
-                <div id={style.darkOverlay} className={`${style.transition}` } onClick={this.handleClick}/>
+                <div id={style.darkOverlay} className={`${style.transition}`} onClick={this.handleClick} />
 
 
                 <div id={style.sideButton} onClick={this.handleClick}>
@@ -35,7 +49,7 @@ export default class ScrollingNavBarMobile extends Component
 
                 <div id={style.sideMenu} className={style.transition}>
 
-
+                    {finalJSX}
 
 
                 </div>
