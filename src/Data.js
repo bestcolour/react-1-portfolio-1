@@ -19,27 +19,27 @@ const data =
                 [
                     {
                         platform: "Linked in",
-                        id: "Lee Kee Shen"
-                    },
-                    {
-                        platform: "Linked in",
-                        id: "Lee Kee Shen"
-                    },
-                    {
-                        platform: "Linked in",
-                        id: "Lee Kee Shen"
+                        id: "John Doe"
                     },
                 ]
+                ,
+            // name: "John Doe",
+            name: "John Doe",
+            country: "Earth"
+
+        }
+        ,
+        introData:
+        {
+            shortDescription: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet risus ultricies lacus convallis sodales. Aenean a lacus vel lorem ullamcorper volutpat quis sit amet tortor."
         }
         ,
         aboutMeData:
         {
             imageURL: "Images/Backgrounds/DayBackground.png",
             aboutMeDescription:
-                "I am a programmer"
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse sit amet risus ultricies lacus convallis sodales. Aenean a lacus vel lorem ullamcorper volutpat quis sit amet tortor. Donec condimentum auctor odio, et mattis lacus iaculis at. Sed eget massa non nisi sagittis dignissim in quis odio. "
             ,
-            name: "Lee Kee Shen",
-            country: "Singapore"
         }
         ,
         qualificationsData:
@@ -48,7 +48,7 @@ const data =
             educationExpArray:
                 [
                     {
-                        instituteName: "Singapore Polytechnic",
+                        instituteName: "Sunset High School",
                         educationCertificate: "Diploma in Game Design & Development",
                         dateOfGraduation: "May 2021",
                         otherAchievements:
@@ -64,21 +64,21 @@ const data =
             workExpArray:
                 [
                     {
-                        companyName: "Singapore Polytechnic",
+                        companyName: "Sunset High School",
                         role: "Diploma in Game Design & Development",
                         lastDayOfWork: "May 2021",
                         otherAchievements: ["Making the world green"]
                     }
                     ,
                     {
-                        companyName: "Singapore Polytechnic",
+                        companyName: "Sunset High School",
                         role: "Diploma in Game Design & Development",
                         lastDayOfWork: "May 2021",
                         otherAchievements: ["Making the world green"]
                     }
                     ,
                     {
-                        companyName: "Singapore Polytechnic",
+                        companyName: "Sunset High School",
                         role: "Diploma in Game Design & Development",
                         lastDayOfWork: "May 2021",
                         otherAchievements: ["Making the world green"]

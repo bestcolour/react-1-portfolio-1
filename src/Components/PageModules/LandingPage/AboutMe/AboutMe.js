@@ -7,13 +7,16 @@ import LPSection from "../../../Common/LPSection";
 
 export default function AboutMe(props)
 {
+    const { aboutMeData, socialMediaData } = props.data;
+
     const
         {
             imageURL,
-            aboutMeDescription,
-            name,
-            country
-        } = props.data;
+            aboutMeDescription
+        } = aboutMeData;
+
+    const { name, country } = socialMediaData;
+
 
     var imgStyle =
     {
@@ -44,9 +47,9 @@ export default function AboutMe(props)
 
 
     return (
-            <div id={style.aboutMeHolder}>
-                <LPSection leftContent={leftContent} rightContent={rightContent} id = {props.id} />
-            </div>
+        <div id={style.aboutMeHolder}>
+            <LPSection leftContent={leftContent} rightContent={rightContent} id={props.id} />
+        </div>
     );
 
 }

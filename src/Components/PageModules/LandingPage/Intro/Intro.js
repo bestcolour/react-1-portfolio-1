@@ -14,14 +14,14 @@ function getSunsetBg()
     ? "/Images/Backgrounds/DayBackground.png"
     : "/Images/Backgrounds/NightBackground.png";
 
-  //Debugging
-  // return "/Images/Backgrounds/DayBackground.png";
-  // return "/Images/Backgrounds/NightBackground.png";
-
 }
 
 export default function Intro(props)
 {
+  const {introData,socialMediaData} = props.data;
+  const { name,buttonSettingsArray } = socialMediaData;
+  const { shortDescription} = introData;
+
   var bgStyle =
   {
     height: "100vh",
@@ -37,14 +37,13 @@ export default function Intro(props)
     <header className={`${commonStyle.col12}`} style={bgStyle} id={props.id}>
       <div id={style.imgTexts}>
         <h1>I am</h1>
-        <h1>Lee Kee Shen</h1>
+        <h1>{name}</h1>
         <p>
-          I am a game design student at singapore polytechnic. Lorem ipsum. I
-          wanna be the very best that no one ever was. Lololololol!!!
+         {shortDescription}
           </p>
         <br />
         <div id={style.buttonHolder}>
-          <ImageButtons data={props.data.buttonSettingsArray} />
+          <ImageButtons data={buttonSettingsArray} />
         </div>
       </div>
     </header>

@@ -48,9 +48,9 @@ export default function LandingPage(props)
         <div>
             <ScrollingNavBar data={sectionData} />
 
-            <Intro data={props.data.socialMediaData} id="INTRO" />
+            <Intro data={{socialMediaData : props.data.socialMediaData,introData: props.data.introData }} id="INTRO" />
 
-            <AboutMe data={props.data.aboutMeData} id="ABOUT" />
+            <AboutMe data={{aboutMeData : props.data.aboutMeData , socialMediaData : props.data.socialMediaData}} id="ABOUT" />
 
             <Qualifications data={props.data.qualificationsData} />
             <Projects data={props.data.projectsData} id="PROJECTS" />
