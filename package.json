@@ -1,8 +1,8 @@
 {
-  "name": "bestcolour-portfolio",
+  "name": "bestcolour-portfolio-unused",
+  "homepage": "https://bestcolour.github.io/bestcolour-portfolio-unused/",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://bestcolour.github.io/deploy-unused-portfolio-1",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
