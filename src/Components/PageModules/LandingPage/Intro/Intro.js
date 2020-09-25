@@ -11,8 +11,8 @@ function getSunsetBg()
 {
   const hours = new Date().getHours();
   return hours >= 7 && hours < 19
-    ? "/Images/Backgrounds/DayBackground.png"
-    : "/Images/Backgrounds/NightBackground.png";
+    ? "Images/Backgrounds/DayBackground.png"
+    : "Images/Backgrounds/NightBackground.png";
 
 }
 
