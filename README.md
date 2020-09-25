@@ -6,7 +6,7 @@ If it is night time, the background will become dark :o
 If it is day time, the background will be orange :D
 
 
-<==========================================================================FOR MY DUMB SELF===================================================================================>
+<===================================FOR MY DUMB SELF=====================================================>
  -Naming convention:
 react-x-portfolio-y
 
