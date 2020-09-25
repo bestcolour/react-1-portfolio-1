@@ -2,7 +2,6 @@ import React from "react";
 //css
 import style from "./Projects.module.css";
 import commonStyle from "../../pageMod.module.css";
-import { Link } from "react-router-dom";
 
 export default function Projects(props)
 {
@@ -34,10 +33,6 @@ export default function Projects(props)
 
                 <div id={style.projectsHolder}>
                     {finalImgJSX}
-                </div>
-
-                <div id={style.seeMoreHolder}>
-                    <section><Link to="/projects">See more</Link></section>
                 </div>
 
             </div>
