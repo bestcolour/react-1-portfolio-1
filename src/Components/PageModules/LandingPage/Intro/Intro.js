@@ -18,14 +18,17 @@ function getSunsetBg()
 
 export default function Intro(props)
 {
-  const {introData,socialMediaData} = props.data;
-  const { name,buttonSettingsArray } = socialMediaData;
-  const { shortDescription} = introData;
+  const { introData, socialMediaData } = props.data;
+  const { name, buttonSettingsArray } = socialMediaData;
+  const { shortDescription } = introData;
+
+  const bgPath = getSunsetBg();
+  console.log(bgPath);
 
   var bgStyle =
   {
     height: "100vh",
-    backgroundImage: `url(${getSunsetBg()})`,
+    backgroundImage: `url(${bgPath})`,
     backgroundSize: "cover",
     backgroundPosition: "center top",
     backgroundRepeat: "no-repeat",
@@ -39,8 +42,8 @@ export default function Intro(props)
         <h1>I am</h1>
         <h1>{name}</h1>
         <p>
-         {shortDescription}
-          </p>
+          {shortDescription}
+        </p>
         <br />
         <div id={style.buttonHolder}>
           <ImageButtons data={buttonSettingsArray} />
